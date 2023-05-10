@@ -1,6 +1,7 @@
 package com.idoso.microservice.controller;
 
 import com.idoso.microservice.model.Employee;
+import com.idoso.microservice.repository.ConnectionFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -38,7 +39,8 @@ public class EmployeeController {
 
     @PostMapping(path = { "/login/{username}/{password}" })
     public String login(@PathVariable("username") String username, @PathVariable("password") String password) {
-        return "Ok, Luis :D";
+        ConnectionFactory.getInstance().connect();
+        return "Ok, conexão ";
     }
 
     private static List<Employee> createList() {
