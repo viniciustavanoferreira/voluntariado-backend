@@ -1,7 +1,7 @@
 package com.idoso.microservice.controller;
 
 import com.idoso.microservice.model.Employee;
-import com.idoso.microservice.repository.ConnectionFactory;
+import com.idoso.microservice.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,7 +10,12 @@ import java.util.List;
 @RestController
 public class EmployeeController {
 
+    private final UsuarioService usuarioService;
     private List<Employee> employees = createList();
+
+    public EmployeeController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET, produces = "application/json")
     public List<Employee> firstPage() {
@@ -36,11 +41,10 @@ public class EmployeeController {
         System.out.println(employees);
         return user;
     }
-
-    @PostMapping(path = { "/login/{username}/{password}" })
+    @PostMapping(path = { "/login/username/{username}/password/{password}" })
     public String login(@PathVariable("username") String username, @PathVariable("password") String password) {
-        ConnectionFactory.getInstance().connect();
-        return "Ok, conexão ";
+        usuarioService.adicionaUsuario(username, password);
+        return "Usuário adicionado com sucesso!";
     }
 
     private static List<Employee> createList() {
