@@ -27,8 +27,8 @@ public class UsuarioController {
         return "Idoso cadastrado com sucesso!";
     }
 
-    @DeleteMapping(path = { "/idoso" })
-    public String deletarIdoso(@RequestBody IdosoDTO idosoDTO) {
+    @DeleteMapping(path = { "/idoso/{idosoId}" })
+    public String deletarIdoso(@PathVariable("idosoId") String idosoId) {
         //idosoService.deletarIdoso(idosoDTO);
         //usuarioService.deletarUsuarioIdoso(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return "Idoso deletado com sucesso!";
@@ -38,14 +38,14 @@ public class UsuarioController {
     public String cadastrarVoluntario(@RequestBody IdosoDTO idosoDTO) {
         //idosoService.adicionarVoluntario(idosoDTO);
         //usuarioService.adicionarUsuarioVoluntario(idosoDTO.getUsuario(), idosoDTO.getSenha());
-        return "Idoso cadastrado com sucesso!";
+        return "Voluntário cadastrado com sucesso!";
     }
 
-    @DeleteMapping(path = { "/voluntario" })
-    public String deletarVoluntario(@RequestBody IdosoDTO idosoDTO) {
+    @DeleteMapping(path = { "/voluntario/{voluntarioId}" })
+    public String deletarVoluntario(@PathVariable("voluntarioId") String voluntarioId) {
         //idosoService.deletarVoluntario(idosoDTO);
         //usuarioService.deletarUsuarioVoluntario(idosoDTO.getUsuario(), idosoDTO.getSenha());
-        return "Idoso deletado com sucesso!";
+        return "Voluntário deletado com sucesso!";
     }
 
 }
