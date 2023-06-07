@@ -1,4 +1,4 @@
-package com.idoso.microservice.model;
+package com.bomvizinho.microservice.model;
 
 public class Employee {
     private String empId;

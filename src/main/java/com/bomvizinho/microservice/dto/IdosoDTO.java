@@ -1,4 +1,4 @@
-package com.idoso.microservice.dto;
+package com.bomvizinho.microservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
@@ -13,6 +13,9 @@ public class IdosoDTO {
     private String endereco;
     private String usuario;
     private String senha;
+
+    public IdosoDTO() {
+    }
 
     @JsonCreator
     public IdosoDTO(String nome, String sobrenome, String dataNascimento,

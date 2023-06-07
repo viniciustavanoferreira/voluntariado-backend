@@ -1,4 +1,4 @@
-package com.idoso.microservice;
+package com.bomvizinho.microservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

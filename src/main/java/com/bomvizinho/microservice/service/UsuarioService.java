@@ -1,7 +1,7 @@
-package com.idoso.microservice.service;
+package com.bomvizinho.microservice.service;
 
-import com.idoso.microservice.entity.Usuario;
-import com.idoso.microservice.repository.UsuarioRepository;
+import com.bomvizinho.microservice.entity.Usuario;
+import com.bomvizinho.microservice.repository.UsuarioRepository;
 import org.springframework.stereotype.Component;
 
 @Component
