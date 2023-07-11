@@ -15,17 +15,17 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping(path = { "login/idoso/username/{username}/password/{password}" })
-    public ResponseEntity<IdosoDTO> loginIdoso(@PathVariable("username") String username, @PathVariable("password") String password) {
-        //usuarioService.adicionarUsuario(username, password);
-        //usuarioService.consultarUsuario(username, password);
+    @PostMapping(path = { "login/idoso/email/{email}/password/{password}" })
+    public ResponseEntity<IdosoDTO> loginIdoso(@PathVariable("email") String email, @PathVariable("password") String password) {
+        //usuarioService.adicionarUsuario(email, password);
+        //usuarioService.consultarUsuario(email, password);
         return ResponseEntity.ok(new IdosoDTO());
     }
 
-    @PostMapping(path = { "login/voluntario/username/{username}/password/{password}" })
-    public ResponseEntity<VoluntarioDTO> loginVoluntario(@PathVariable("username") String username, @PathVariable("password") String password) {
-        //usuarioService.adicionarUsuario(username, password);
-        //usuarioService.consultarUsuario(username, password);
+    @PostMapping(path = { "login/voluntario/email/{email}/password/{password}" })
+    public ResponseEntity<VoluntarioDTO> loginVoluntario(@PathVariable("email") String email, @PathVariable("password") String password) {
+        //usuarioService.adicionarUsuario(email, password);
+        //usuarioService.consultarUsuario(email, password);
         return ResponseEntity.ok(new VoluntarioDTO());
     }
 
@@ -41,17 +41,23 @@ public class UsuarioController {
         return ResponseEntity.ok("Idoso atualizado com sucesso!");
     }
 
-    @DeleteMapping(path = { "/idoso/{usuario}" })
-    public ResponseEntity<String> deletarIdoso(@PathVariable("usuario") String usuario) {
+    @DeleteMapping(path = { "/idoso/{email}" })
+    public ResponseEntity<String> deletarIdoso(@PathVariable("email") String email) {
         //idosoService.deletarIdoso(idosoDTO);
         //usuarioService.deletarUsuarioIdoso(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return ResponseEntity.ok("Idoso deletado com sucesso!");
     }
 
+    @GetMapping(path = { "/idoso/{email}" })
+    public ResponseEntity<String> buscarIdoso(@PathVariable("email") String email) {
+        //idosoService.buscarIdoso(email);
+        return ResponseEntity.ok("Idoso selecionado com sucesso!");
+    }
+
     @PostMapping(path = { "/voluntario" })
     public ResponseEntity<String> cadastrarVoluntario(@RequestBody VoluntarioDTO voluntarioDTO) {
-        //idosoService.adicionarVoluntario(idosoDTO);
-        //usuarioService.adicionarUsuarioVoluntario(idosoDTO.getUsuario(), idosoDTO.getSenha());
+        //voluntarioService.adicionarVoluntario(idosoDTO);
+        //usuarioService.adicionarUsuarioVoluntario(voluntarioDTO.getUsuario(), voluntarioDTO.getSenha());
         return ResponseEntity.ok("Voluntário cadastrado com sucesso!");
     }
 
@@ -60,11 +66,17 @@ public class UsuarioController {
         return ResponseEntity.ok("Voluntário atualizado com sucesso!");
     }
 
-    @DeleteMapping(path = { "/voluntario/{usuario}" })
-    public ResponseEntity<String> deletarVoluntario(@PathVariable("usuario") String usuario) {
-        //idosoService.deletarVoluntario(usuario);
+    @DeleteMapping(path = { "/voluntario/{email}" })
+    public ResponseEntity<String> deletarVoluntario(@PathVariable("email") String email) {
+        //voluntarioService.deletarVoluntario(usuario);
         //usuarioService.deletarUsuarioVoluntario(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return ResponseEntity.ok("Voluntário deletado com sucesso!");
+    }
+
+    @GetMapping(path = { "/voluntario/{email}" })
+    public ResponseEntity<String> buscarVoluntario(@PathVariable("email") String email) {
+        //voluntarioService.buscarIdoso(email);
+        return ResponseEntity.ok("Voluntario selecionado com sucesso!");
     }
 
 }
