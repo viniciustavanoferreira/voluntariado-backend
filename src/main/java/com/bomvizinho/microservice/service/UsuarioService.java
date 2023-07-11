@@ -13,9 +13,9 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void adicionaUsuario(String username, String password){
+    public void adicionaUsuario(String email, String password){
         Usuario usuario = new Usuario();
-        usuario.setUsuarioId(username);
+        usuario.setEmail(email);
         usuario.setSenha(password);
         usuarioRepository.save(usuario);
     }
