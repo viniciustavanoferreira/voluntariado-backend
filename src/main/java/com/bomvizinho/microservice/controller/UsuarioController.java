@@ -2,6 +2,7 @@ package com.bomvizinho.microservice.controller;
 
 import com.bomvizinho.microservice.dto.IdosoDTO;
 import com.bomvizinho.microservice.dto.VoluntarioDTO;
+import com.bomvizinho.microservice.service.EmailService;
 import com.bomvizinho.microservice.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+    private final EmailService emailService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService, EmailService emailService) {
         this.usuarioService = usuarioService;
+        this.emailService = emailService;
     }
 
     @PostMapping(path = { "login/idoso/email/{email}/password/{password}" })
@@ -77,6 +80,12 @@ public class UsuarioController {
     public ResponseEntity<String> buscarVoluntario(@PathVariable("email") String email) {
         //voluntarioService.buscarIdoso(email);
         return ResponseEntity.ok("Voluntario selecionado com sucesso!");
+    }
+
+    @PostMapping("/usuario/resetar-senha/{email}")
+    public ResponseEntity<String> resetarSenha(@PathVariable("email") String email) {
+        emailService.sendEmail(email);
+        return ResponseEntity.ok("E-mail para resetar senha enviado com sucesso!");
     }
 
 }
