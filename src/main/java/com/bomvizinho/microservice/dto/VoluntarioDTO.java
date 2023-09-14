@@ -103,4 +103,82 @@ public class VoluntarioDTO {
         this.senha = senha;
     }
 
+    public static final class Builder {
+        private String nome;
+        private String sobrenome;
+        private String dataNascimento;
+        private String email;
+        private String telefone;
+        private String cep;
+        private String endereco;
+        private String usuario;
+        private String senha;
+
+        private Builder() {
+        }
+
+        public static Builder aVoluntarioDTO() {
+            return new Builder();
+        }
+
+        public Builder withNome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder withSobrenome(String sobrenome) {
+            this.sobrenome = sobrenome;
+            return this;
+        }
+
+        public Builder withDataNascimento(String dataNascimento) {
+            this.dataNascimento = dataNascimento;
+            return this;
+        }
+
+        public Builder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder withTelefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder withCep(String cep) {
+            this.cep = cep;
+            return this;
+        }
+
+        public Builder withEndereco(String endereco) {
+            this.endereco = endereco;
+            return this;
+        }
+
+        public Builder withUsuario(String usuario) {
+            this.usuario = usuario;
+            return this;
+        }
+
+        public Builder withSenha(String senha) {
+            this.senha = senha;
+            return this;
+        }
+
+        public VoluntarioDTO build() {
+            VoluntarioDTO voluntarioDTO = new VoluntarioDTO();
+            voluntarioDTO.setNome(nome);
+            voluntarioDTO.setSobrenome(sobrenome);
+            voluntarioDTO.setDataNascimento(dataNascimento);
+            voluntarioDTO.setEmail(email);
+            voluntarioDTO.setTelefone(telefone);
+            voluntarioDTO.setCep(cep);
+            voluntarioDTO.setEndereco(endereco);
+            voluntarioDTO.setUsuario(usuario);
+            voluntarioDTO.setSenha(senha);
+            return voluntarioDTO;
+        }
+    }
+
 }

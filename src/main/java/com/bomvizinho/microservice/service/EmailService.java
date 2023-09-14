@@ -16,7 +16,7 @@ public class EmailService {
     public void sendEmail(String to) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setSubject("Resetar senha");
+        message.setSubject("pedro");
         message.setText("E-mail para resetar senha");
 
         mailSender.send(message);
