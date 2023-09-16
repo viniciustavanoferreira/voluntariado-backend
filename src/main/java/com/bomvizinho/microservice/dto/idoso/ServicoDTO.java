@@ -1,4 +1,4 @@
-package com.bomvizinho.microservice.dto;
+package com.bomvizinho.microservice.dto.idoso;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
@@ -7,18 +7,18 @@ public class ServicoDTO {
     private String tipoServico;
     private String dataInicio;
     private String dataFim;
-    private VoluntarioDTO voluntarioDTO;
+    private VoluntarioServicoDTO voluntarioServicoDTO;
 
     public ServicoDTO() {
     }
 
     @JsonCreator
     public ServicoDTO(String tipoServico, String dataInicio,
-                      String dataFim, VoluntarioDTO voluntarioDTO) {
+                      String dataFim, VoluntarioServicoDTO voluntarioServicoDTO) {
         this.tipoServico = tipoServico;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.voluntarioDTO = voluntarioDTO;
+        this.voluntarioServicoDTO = voluntarioServicoDTO;
     }
 
     public String getTipoServico() {
@@ -45,19 +45,19 @@ public class ServicoDTO {
         this.dataFim = dataFim;
     }
 
-    public VoluntarioDTO getVoluntarioDTO() {
-        return voluntarioDTO;
+    public VoluntarioServicoDTO getVoluntarioDTO() {
+        return voluntarioServicoDTO;
     }
 
-    public void setVoluntarioDTO(VoluntarioDTO voluntarioDTO) {
-        this.voluntarioDTO = voluntarioDTO;
+    public void setVoluntarioDTO(VoluntarioServicoDTO voluntarioServicoDTO) {
+        this.voluntarioServicoDTO = voluntarioServicoDTO;
     }
 
     public static final class Builder {
         private String tipoServico;
         private String dataInicio;
         private String dataFim;
-        private VoluntarioDTO voluntarioDTO;
+        private VoluntarioServicoDTO voluntarioServicoDTO;
 
         private Builder() {
         }
@@ -81,8 +81,8 @@ public class ServicoDTO {
             return this;
         }
 
-        public Builder withVoluntarioDTO(VoluntarioDTO voluntarioDTO) {
-            this.voluntarioDTO = voluntarioDTO;
+        public Builder withVoluntarioDTO(VoluntarioServicoDTO voluntarioServicoDTO) {
+            this.voluntarioServicoDTO = voluntarioServicoDTO;
             return this;
         }
 
@@ -91,7 +91,7 @@ public class ServicoDTO {
             servicoDTO.setTipoServico(tipoServico);
             servicoDTO.setDataInicio(dataInicio);
             servicoDTO.setDataFim(dataFim);
-            servicoDTO.setVoluntarioDTO(voluntarioDTO);
+            servicoDTO.setVoluntarioDTO(voluntarioServicoDTO);
             return servicoDTO;
         }
     }
