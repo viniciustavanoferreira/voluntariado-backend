@@ -1,8 +1,9 @@
 package com.bomvizinho.microservice.controller;
 
-import com.bomvizinho.microservice.dto.IdosoDTO;
-import com.bomvizinho.microservice.dto.VoluntarioDTO;
-import com.bomvizinho.microservice.dto.ServicoDTO;
+import com.bomvizinho.microservice.dto.idoso.IdosoDTO;
+import com.bomvizinho.microservice.dto.idoso.VoluntarioServicoDTO;
+import com.bomvizinho.microservice.dto.idoso.ServicoDTO;
+import com.bomvizinho.microservice.dto.voluntario.VoluntarioDTO;
 import com.bomvizinho.microservice.service.EmailService;
 import com.bomvizinho.microservice.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
@@ -22,18 +23,42 @@ public class UsuarioController {
         this.emailService = emailService;
     }
 
-    @PostMapping(path = { "login/idoso/email/{email}/password/{password}" })
-    public ResponseEntity<IdosoDTO> loginIdoso(@PathVariable("email") String email, @PathVariable("password") String password) {
+    @PostMapping(path = { "login/email/{email}/password/{password}" })
+    public ResponseEntity<IdosoDTO> login(@PathVariable("email") String email, @PathVariable("password") String password) {
         //usuarioService.adicionarUsuario(email, password);
         //usuarioService.consultarUsuario(email, password);
-        return ResponseEntity.ok(new IdosoDTO());
-    }
-
-    @PostMapping(path = { "login/voluntario/email/{email}/password/{password}" })
-    public ResponseEntity<VoluntarioDTO> loginVoluntario(@PathVariable("email") String email, @PathVariable("password") String password) {
-        //usuarioService.adicionarUsuario(email, password);
-        //usuarioService.consultarUsuario(email, password);
-        return ResponseEntity.ok(new VoluntarioDTO());
+        return ResponseEntity.ok(IdosoDTO.Builder
+                .anIdosoDTO()
+                .withEmail("vinicius-titio@etec.sp.gov.br")
+                .withCep("99999-999")
+                .withNome("Vini Titio")
+                .withDataNascimento("01/01/1940")
+                .withUsuario("vinicius-titio")
+                .withTelefone("17-99999-9999")
+                .withServicoDTOList(List.of(
+                        ServicoDTO.Builder.aServicoDTO()
+                                .withTipoServico("Troca de lâmpada")
+                                .withDataInicio("01/01/1940")
+                                .withDataFim("01/01/1940")
+                                .withVoluntarioDTO(VoluntarioServicoDTO.Builder
+                                        .aVoluntarioDTO()
+                                        .withNome("Eustáquio Mello")
+                                        .withEmail("eus@gmail.com")
+                                        .withTelefone("17-99999-9999")
+                                        .build())
+                                .build(),
+                        ServicoDTO.Builder.aServicoDTO()
+                                .withTipoServico("Troca de resistência do chuveiro")
+                                .withDataInicio("01/01/1940")
+                                .withDataFim("01/01/1940")
+                                .withVoluntarioDTO(VoluntarioServicoDTO.Builder
+                                        .aVoluntarioDTO()
+                                        .withNome("Melica Teams")
+                                        .withEmail("melli@gmail.com")
+                                        .withTelefone("17-99999-9999")
+                                        .build())
+                                .build()))
+                .build());
     }
 
     @PostMapping(path = { "/idoso" })
@@ -93,7 +118,7 @@ public class UsuarioController {
     }
 
     @GetMapping(path = { "/idoso/servico/{email}" })
-    public ResponseEntity<IdosoDTO> buscarServico(@PathVariable("email") String email) {
+    public ResponseEntity<IdosoDTO> buscarServicoIdoso(@PathVariable("email") String email) {
         return ResponseEntity.ok(IdosoDTO.Builder
                 .anIdosoDTO()
                         .withEmail("vinicius-titio@etec.sp.gov.br")
@@ -107,7 +132,7 @@ public class UsuarioController {
                                         .withTipoServico("Troca de lâmpada")
                                         .withDataInicio("01/01/1940")
                                         .withDataFim("01/01/1940")
-                                        .withVoluntarioDTO(VoluntarioDTO.Builder
+                                        .withVoluntarioDTO(VoluntarioServicoDTO.Builder
                                                 .aVoluntarioDTO()
                                                 .withNome("Eustáquio Mello")
                                                 .withEmail("eus@gmail.com")
@@ -118,13 +143,23 @@ public class UsuarioController {
                                                 .withTipoServico("Troca de resistência do chuveiro")
                                                 .withDataInicio("01/01/1940")
                                                 .withDataFim("01/01/1940")
-                                                .withVoluntarioDTO(VoluntarioDTO.Builder
+                                                .withVoluntarioDTO(VoluntarioServicoDTO.Builder
                                                         .aVoluntarioDTO()
                                                         .withNome("Melica Teams")
                                                         .withEmail("melli@gmail.com")
                                                         .withTelefone("17-99999-9999")
                                                         .build())
                                                 .build()))
+                .build());
+    }
+
+    @GetMapping(path = { "/voluntario/servico/{email}" })
+    public ResponseEntity<VoluntarioDTO> buscarServicoVoluntario(@PathVariable("email") String email) {
+        return ResponseEntity.ok(VoluntarioDTO.Builder
+                .aVoluntarioDTO()
+                    .withNome("Eustáquio Mello")
+                    .withEmail("eus@gmail.com")
+                    .withTelefone("17-99999-9999")
                 .build());
     }
 
