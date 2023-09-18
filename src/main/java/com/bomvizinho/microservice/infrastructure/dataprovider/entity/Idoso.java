@@ -1,4 +1,4 @@
-package com.bomvizinho.microservice.entity;
+package com.bomvizinho.microservice.infrastructure.dataprovider.entity;
 
 import jakarta.persistence.*;
 
