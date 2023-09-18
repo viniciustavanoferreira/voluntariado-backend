@@ -13,6 +13,8 @@ public class UsuarioDTO {
     private String usuario;
     private String senha;
 
+    private String perfil;
+
     public UsuarioDTO() {
     }
 
@@ -20,7 +22,7 @@ public class UsuarioDTO {
     public UsuarioDTO(String nome, String dataNascimento,
                       String email, String telefone,
                       String cep, String endereco,
-                      String usuario, String senha) {
+                      String usuario, String senha, String perfil) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.email = email;
@@ -29,6 +31,7 @@ public class UsuarioDTO {
         this.endereco = endereco;
         this.usuario = usuario;
         this.senha = senha;
+        this.perfil = perfil;
     }
 
     public String getNome() {
@@ -95,6 +98,14 @@ public class UsuarioDTO {
         this.senha = senha;
     }
 
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+
     public static final class Builder {
         private String nome;
         private String dataNascimento;
@@ -104,6 +115,7 @@ public class UsuarioDTO {
         private String endereco;
         private String usuario;
         private String senha;
+        private String perfil;
 
         private Builder() {
         }
@@ -152,6 +164,11 @@ public class UsuarioDTO {
             return this;
         }
 
+        public Builder withPerfil(String perfil) {
+            this.perfil = perfil;
+            return this;
+        }
+
         public UsuarioDTO build() {
             UsuarioDTO usuarioDTO = new UsuarioDTO();
             usuarioDTO.setNome(nome);
@@ -162,6 +179,7 @@ public class UsuarioDTO {
             usuarioDTO.setEndereco(endereco);
             usuarioDTO.setUsuario(usuario);
             usuarioDTO.setSenha(senha);
+            usuarioDTO.setPerfil(perfil);
             return usuarioDTO;
         }
     }

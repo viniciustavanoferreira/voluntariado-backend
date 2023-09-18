@@ -31,6 +31,7 @@ public class UsuarioController {
         return ResponseEntity.ok(UsuarioDTO.Builder
                 .anUsuarioDTO()
                     .withEmail("vinicius-titio@etec.sp.gov.br")
+                    .withPerfil("VOLUNTARIO")
                     .withCep("99999-999")
                     .withEndereco("Rua das Flores, 123")
                     .withNome("Vini Titio")
