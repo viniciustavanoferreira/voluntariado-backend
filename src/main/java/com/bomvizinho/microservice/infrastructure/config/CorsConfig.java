@@ -1,4 +1,4 @@
-package com.bomvizinho.microservice.config;
+package com.bomvizinho.microservice.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

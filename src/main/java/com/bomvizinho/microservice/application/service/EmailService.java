@@ -1,4 +1,4 @@
-package com.bomvizinho.microservice.service;
+package com.bomvizinho.microservice.application.service;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;

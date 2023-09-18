@@ -1,11 +1,13 @@
-package com.bomvizinho.microservice.dto.voluntario;
+package com.bomvizinho.microservice.boundary.controller.dto.servico.idoso;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class VoluntarioDTO {
+import java.util.List;
+
+public class IdosoDTO {
 
     private String nome;
-    private String sobrenome;
+
     private String dataNascimento;
     private String email;
     private String telefone;
@@ -14,14 +16,16 @@ public class VoluntarioDTO {
     private String usuario;
     private String senha;
 
-    public VoluntarioDTO() {
+    private List<ServicoDTO> servicoDTOList;
+
+    public IdosoDTO() {
     }
 
     @JsonCreator
-    public VoluntarioDTO(String nome, String sobrenome, String dataNascimento, String email,
-                         String telefone, String cep, String endereco, String usuario, String senha) {
+    public IdosoDTO(String nome, String dataNascimento,
+                    String email, String telefone, String cep, String endereco,
+                    String usuario, String senha, List<ServicoDTO> servicoDTOList) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.telefone = telefone;
@@ -29,6 +33,7 @@ public class VoluntarioDTO {
         this.endereco = endereco;
         this.usuario = usuario;
         this.senha = senha;
+        this.servicoDTOList = servicoDTOList;
     }
 
     public String getNome() {
@@ -37,14 +42,6 @@ public class VoluntarioDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getDataNascimento() {
@@ -103,9 +100,16 @@ public class VoluntarioDTO {
         this.senha = senha;
     }
 
+    public List<ServicoDTO> getServicoDTOList() {
+        return servicoDTOList;
+    }
+
+    public void setServicoDTOList(List<ServicoDTO> servicoDTOList) {
+        this.servicoDTOList = servicoDTOList;
+    }
+
     public static final class Builder {
         private String nome;
-        private String sobrenome;
         private String dataNascimento;
         private String email;
         private String telefone;
@@ -113,21 +117,17 @@ public class VoluntarioDTO {
         private String endereco;
         private String usuario;
         private String senha;
+        private List<ServicoDTO> servicoDTOList;
 
         private Builder() {
         }
 
-        public static Builder aVoluntarioDTO() {
+        public static Builder anIdosoDTO() {
             return new Builder();
         }
 
         public Builder withNome(String nome) {
             this.nome = nome;
-            return this;
-        }
-
-        public Builder withSobrenome(String sobrenome) {
-            this.sobrenome = sobrenome;
             return this;
         }
 
@@ -166,18 +166,23 @@ public class VoluntarioDTO {
             return this;
         }
 
-        public VoluntarioDTO build() {
-            VoluntarioDTO voluntarioDTO = new VoluntarioDTO();
-            voluntarioDTO.setNome(nome);
-            voluntarioDTO.setSobrenome(sobrenome);
-            voluntarioDTO.setDataNascimento(dataNascimento);
-            voluntarioDTO.setEmail(email);
-            voluntarioDTO.setTelefone(telefone);
-            voluntarioDTO.setCep(cep);
-            voluntarioDTO.setEndereco(endereco);
-            voluntarioDTO.setUsuario(usuario);
-            voluntarioDTO.setSenha(senha);
-            return voluntarioDTO;
+        public Builder withServicoDTOList(List<ServicoDTO> servicoDTOList) {
+            this.servicoDTOList = servicoDTOList;
+            return this;
+        }
+
+        public IdosoDTO build() {
+            IdosoDTO idosoDTO = new IdosoDTO();
+            idosoDTO.setNome(nome);
+            idosoDTO.setDataNascimento(dataNascimento);
+            idosoDTO.setEmail(email);
+            idosoDTO.setTelefone(telefone);
+            idosoDTO.setCep(cep);
+            idosoDTO.setEndereco(endereco);
+            idosoDTO.setUsuario(usuario);
+            idosoDTO.setSenha(senha);
+            idosoDTO.setServicoDTOList(servicoDTOList);
+            return idosoDTO;
         }
     }
 
