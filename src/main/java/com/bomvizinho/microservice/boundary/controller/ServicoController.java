@@ -1,14 +1,12 @@
 package com.bomvizinho.microservice.boundary.controller;
 
+import com.bomvizinho.microservice.boundary.controller.dto.servico.ServicoDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +14,7 @@ import java.util.List;
 @RequestMapping("/v1/api/servico")
 public class ServicoController {
 
-    @GetMapping(path = { "/idoso/{email}" })
+    @GetMapping("/idoso/{email}")
     public ResponseEntity<IdosoDTO> buscarServicoIdoso(@PathVariable("email") String email) {
         return ResponseEntity.ok(IdosoDTO.Builder
                 .anIdosoDTO()
@@ -27,22 +25,24 @@ public class ServicoController {
                 .withUsuario("vinicius-titio")
                 .withTelefone("17-99999-9999")
                 .withServicoDTOList(List.of(
-                        ServicoDTO.Builder.aServicoDTO()
+                        ServicoIdosoDTO.Builder.aServicoDTO()
+                                .withNumero("1")
                                 .withTipoServico("Troca de lâmpada")
                                 .withDataInicio("01/01/1940")
                                 .withDataFim("01/01/1940")
-                                .withVoluntarioDTO(VoluntarioServicoDTO.Builder
+                                .withVoluntarioServicoDTO(VoluntarioServicoDTO.Builder
                                         .aVoluntarioDTO()
                                         .withNome("Eustáquio Mello")
                                         .withEmail("eus@gmail.com")
                                         .withTelefone("17-99999-9999")
                                         .build())
                                 .build(),
-                        ServicoDTO.Builder.aServicoDTO()
+                        ServicoIdosoDTO.Builder.aServicoDTO()
+                                .withNumero("2")
                                 .withTipoServico("Troca de resistência do chuveiro")
                                 .withDataInicio("01/01/1940")
                                 .withDataFim("01/01/1940")
-                                .withVoluntarioDTO(VoluntarioServicoDTO.Builder
+                                .withVoluntarioServicoDTO(VoluntarioServicoDTO.Builder
                                         .aVoluntarioDTO()
                                         .withNome("Melica Teams")
                                         .withEmail("melli@gmail.com")
@@ -52,14 +52,24 @@ public class ServicoController {
                 .build());
     }
 
-    @GetMapping(path = { "/voluntario/{email}" })
+    @GetMapping("/voluntario/{email}")
     public ResponseEntity<VoluntarioDTO> buscarServicoVoluntario(@PathVariable("email") String email) {
         return ResponseEntity.ok(VoluntarioDTO.Builder
                 .aVoluntarioDTO()
-                .withNome("Eustáquio Mello")
-                .withEmail("eus@gmail.com")
-                .withTelefone("17-99999-9999")
+                    .withNome("Eustáquio Mello")
+                    .withEmail("eus@gmail.com")
+                    .withTelefone("17-99999-9999")
                 .build());
+    }
+
+    @DeleteMapping("/{codigo-servico}")
+    public ResponseEntity<String> deletarServico(@PathVariable("codigo-servico") String codigoServico) {
+        return ResponseEntity.ok("Serviço deletado com sucesso!");
+    }
+
+    @PutMapping
+    public ResponseEntity<String> atualizarServico(@RequestBody ServicoDTO servicoDTO) {
+        return ResponseEntity.ok("Serviço atualizado com sucesso!");
     }
 
 }

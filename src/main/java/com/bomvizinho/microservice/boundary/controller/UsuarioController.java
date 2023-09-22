@@ -2,15 +2,11 @@ package com.bomvizinho.microservice.boundary.controller;
 
 import com.bomvizinho.microservice.boundary.controller.dto.login.UsuarioDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO;
 import com.bomvizinho.microservice.application.service.EmailService;
 import com.bomvizinho.microservice.application.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/v1/api/usuario")
@@ -24,7 +20,7 @@ public class UsuarioController {
         this.emailService = emailService;
     }
 
-    @PostMapping(path = { "login/email/{email}/password/{password}" })
+    @PostMapping("login/email/{email}/password/{password}")
     public ResponseEntity<UsuarioDTO> login(@PathVariable("email") String email, @PathVariable("password") String password) {
         //usuarioService.adicionarUsuario(email, password);
         //usuarioService.consultarUsuario(email, password);
@@ -41,51 +37,51 @@ public class UsuarioController {
                 .build());
     }
 
-    @PostMapping(path = { "/idoso" })
+    @PostMapping("/idoso")
     public ResponseEntity<String> cadastrarIdoso(@RequestBody IdosoDTO idosoDTO) {
         //idosoService.adicionarIdoso(idosoDTO);
         //usuarioService.adicionarUsuarioIdoso(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return ResponseEntity.ok("Idoso cadastrado com sucesso!");
     }
 
-    @PutMapping(path = { "/idoso" })
+    @PutMapping("/idoso")
     public ResponseEntity<String> atualizarIdoso(@RequestBody IdosoDTO idosoDTO) {
         return ResponseEntity.ok("Idoso atualizado com sucesso!");
     }
 
-    @DeleteMapping(path = { "/idoso/{email}" })
+    @DeleteMapping("/idoso/{email}")
     public ResponseEntity<String> deletarIdoso(@PathVariable("email") String email) {
         //idosoService.deletarIdoso(idosoDTO);
         //usuarioService.deletarUsuarioIdoso(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return ResponseEntity.ok("Idoso deletado com sucesso!");
     }
 
-    @GetMapping(path = { "/idoso/{email}" })
+    @GetMapping("/idoso/{email}")
     public ResponseEntity<String> buscarIdoso(@PathVariable("email") String email) {
         //idosoService.buscarIdoso(email);
         return ResponseEntity.ok("Idoso selecionado com sucesso!");
     }
 
-    @PostMapping(path = { "/voluntario" })
+    @PostMapping("/voluntario")
     public ResponseEntity<String> cadastrarVoluntario(@RequestBody VoluntarioDTO voluntarioDTO) {
         //voluntarioService.adicionarVoluntario(idosoDTO);
         //usuarioService.adicionarUsuarioVoluntario(voluntarioDTO.getUsuario(), voluntarioDTO.getSenha());
         return ResponseEntity.ok("Voluntário cadastrado com sucesso!");
     }
 
-    @PutMapping(path = { "/voluntario" })
+    @PutMapping("/voluntario")
     public ResponseEntity<String> atualizarVoluntario(@RequestBody VoluntarioDTO voluntarioDTO) {
         return ResponseEntity.ok("Voluntário atualizado com sucesso!");
     }
 
-    @DeleteMapping(path = { "/voluntario/{email}" })
+    @DeleteMapping("/voluntario/{email}")
     public ResponseEntity<String> deletarVoluntario(@PathVariable("email") String email) {
         //voluntarioService.deletarVoluntario(usuario);
         //usuarioService.deletarUsuarioVoluntario(idosoDTO.getUsuario(), idosoDTO.getSenha());
         return ResponseEntity.ok("Voluntário deletado com sucesso!");
     }
 
-    @GetMapping(path = { "/voluntario/{email}" })
+    @GetMapping("/voluntario/{email}")
     public ResponseEntity<String> buscarVoluntario(@PathVariable("email") String email) {
         //voluntarioService.buscarIdoso(email);
         return ResponseEntity.ok("Voluntario selecionado com sucesso!");

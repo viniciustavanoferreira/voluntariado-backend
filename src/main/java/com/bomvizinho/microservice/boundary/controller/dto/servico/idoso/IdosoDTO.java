@@ -16,7 +16,7 @@ public class IdosoDTO {
     private String usuario;
     private String senha;
 
-    private List<ServicoDTO> servicoDTOList;
+    private List<ServicoIdosoDTO> servicoIdosoDTOList;
 
     public IdosoDTO() {
     }
@@ -24,7 +24,7 @@ public class IdosoDTO {
     @JsonCreator
     public IdosoDTO(String nome, String dataNascimento,
                     String email, String telefone, String cep, String endereco,
-                    String usuario, String senha, List<ServicoDTO> servicoDTOList) {
+                    String usuario, String senha, List<ServicoIdosoDTO> servicoIdosoDTOList) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.email = email;
@@ -33,7 +33,7 @@ public class IdosoDTO {
         this.endereco = endereco;
         this.usuario = usuario;
         this.senha = senha;
-        this.servicoDTOList = servicoDTOList;
+        this.servicoIdosoDTOList = servicoIdosoDTOList;
     }
 
     public String getNome() {
@@ -100,12 +100,12 @@ public class IdosoDTO {
         this.senha = senha;
     }
 
-    public List<ServicoDTO> getServicoDTOList() {
-        return servicoDTOList;
+    public List<ServicoIdosoDTO> getServicoDTOList() {
+        return servicoIdosoDTOList;
     }
 
-    public void setServicoDTOList(List<ServicoDTO> servicoDTOList) {
-        this.servicoDTOList = servicoDTOList;
+    public void setServicoDTOList(List<ServicoIdosoDTO> servicoIdosoDTOList) {
+        this.servicoIdosoDTOList = servicoIdosoDTOList;
     }
 
     public static final class Builder {
@@ -117,7 +117,7 @@ public class IdosoDTO {
         private String endereco;
         private String usuario;
         private String senha;
-        private List<ServicoDTO> servicoDTOList;
+        private List<ServicoIdosoDTO> servicoIdosoDTOList;
 
         private Builder() {
         }
@@ -166,8 +166,8 @@ public class IdosoDTO {
             return this;
         }
 
-        public Builder withServicoDTOList(List<ServicoDTO> servicoDTOList) {
-            this.servicoDTOList = servicoDTOList;
+        public Builder withServicoDTOList(List<ServicoIdosoDTO> servicoIdosoDTOList) {
+            this.servicoIdosoDTOList = servicoIdosoDTOList;
             return this;
         }
 
@@ -181,7 +181,7 @@ public class IdosoDTO {
             idosoDTO.setEndereco(endereco);
             idosoDTO.setUsuario(usuario);
             idosoDTO.setSenha(senha);
-            idosoDTO.setServicoDTOList(servicoDTOList);
+            idosoDTO.setServicoDTOList(servicoIdosoDTOList);
             return idosoDTO;
         }
     }
