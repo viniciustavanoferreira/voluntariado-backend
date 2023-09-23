@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/v1/api/servico")
 public class ServicoController {
 
-    @GetMapping("/idoso/{email}")
+    @GetMapping("/idoso/email/{email}")
     public ResponseEntity<IdosoDTO> buscarServicoIdoso(@PathVariable("email") String email) {
         return ResponseEntity.ok(IdosoDTO.Builder
                 .anIdosoDTO()
@@ -52,7 +52,7 @@ public class ServicoController {
                 .build());
     }
 
-    @GetMapping("/voluntario/{email}")
+    @GetMapping("/voluntario/email/{email}")
     public ResponseEntity<VoluntarioDTO> buscarServicoVoluntario(@PathVariable("email") String email) {
         return ResponseEntity.ok(VoluntarioDTO.Builder
                 .aVoluntarioDTO()
@@ -62,7 +62,7 @@ public class ServicoController {
                 .build());
     }
 
-    @DeleteMapping("/{codigo-servico}")
+    @DeleteMapping("/codigo-servico/{codigo-servico}")
     public ResponseEntity<String> deletarServico(@PathVariable("codigo-servico") String codigoServico) {
         return ResponseEntity.ok("Serviço deletado com sucesso!");
     }
