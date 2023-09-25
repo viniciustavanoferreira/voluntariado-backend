@@ -62,7 +62,7 @@ public class ServicoController {
                 .build());
     }
 
-    @DeleteMapping("/codigo-servico/{codigo-servico}")
+    @DeleteMapping("/servico/{codigo-servico}")
     public ResponseEntity<String> deletarServico(@PathVariable("codigo-servico") String codigoServico) {
         return ResponseEntity.ok("Serviço deletado com sucesso!");
     }
