@@ -92,10 +92,10 @@ public class UsuarioController {
         return ResponseEntity.ok("Voluntario selecionado com sucesso!");
     }
 
-    @PostMapping("/resetar/email/{email}")
-    public ResponseEntity<String> resetarSenha(@PathVariable("email") String email) {
+    @PostMapping("/redefinir-senha/email/{email}")
+    public ResponseEntity<String> redefinirSenha(@PathVariable("email") String email) {
         emailService.sendEmail(email);
-        return ResponseEntity.ok("E-mail para resetar senha enviado com sucesso!");
+        return ResponseEntity.ok("E-mail para redefinir a senha foi enviado com sucesso!");
     }
 
 }
