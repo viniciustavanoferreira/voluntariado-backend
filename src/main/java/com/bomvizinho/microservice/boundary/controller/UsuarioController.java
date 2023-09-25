@@ -98,4 +98,10 @@ public class UsuarioController {
         return ResponseEntity.ok("E-mail para redefinir a senha foi enviado com sucesso!");
     }
 
+    @PostMapping("/alterar-senha/email/{email}/nova-senha/{nova-senha}")
+    public ResponseEntity<String> alterarSenha(@PathVariable("email") String email,
+                                               @PathVariable("nova-senha") String novaSenha) {
+        return ResponseEntity.ok("Senha alterada com sucesso!");
+    }
+
 }
