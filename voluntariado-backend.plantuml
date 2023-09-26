@@ -1,0 +1,181 @@
+@startuml
+
+title __MICROSERVICE's Class Diagram__\n
+
+  namespace com.bomvizinho.microservice {
+    class com.bomvizinho.microservice.SpringApp {
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.service {
+      class com.bomvizinho.microservice.application.service.EmailService {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.service {
+      class com.bomvizinho.microservice.application.service.UsuarioService {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      class com.bomvizinho.microservice.boundary.controller.ServicoController {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      class com.bomvizinho.microservice.boundary.controller.UsuarioController {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.login.UsuarioDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        class com.bomvizinho.microservice.boundary.controller.dto.servico.ServicoDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace voluntario {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.config {
+      class com.bomvizinho.microservice.infrastructure.config.CorsConfig {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.entity {
+      class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.entity {
+      class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.entity {
+      class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.entity {
+      class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository {
+      }
+    }
+  }
+  
+
+  com.bomvizinho.microservice.application.service.UsuarioService o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.EmailService : emailService
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.UsuarioService : usuarioService
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO o-- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO : voluntarioServicoDTO
+  com.bomvizinho.microservice.infrastructure.config.CorsConfig .up.|> org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso .up.|> java.io.Serializable
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioIdoso
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico .up.|> java.io.Serializable
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso : idosoServico
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario : voluntarioServico
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario .up.|> java.io.Serializable
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario .up.|> java.io.Serializable
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioVoluntario
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
