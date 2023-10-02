@@ -1,11 +1,10 @@
-package com.bomvizinho.microservice.boundary.controller.dto.servico.idoso;
+package com.bomvizinho.microservice.boundary.controller.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class VoluntarioServicoDTO {
+public class UsuarioDTO {
 
     private String nome;
-    private String sobrenome;
     private String dataNascimento;
     private String email;
     private String telefone;
@@ -14,14 +13,17 @@ public class VoluntarioServicoDTO {
     private String usuario;
     private String senha;
 
-    public VoluntarioServicoDTO() {
+    private String perfil;
+
+    public UsuarioDTO() {
     }
 
     @JsonCreator
-    public VoluntarioServicoDTO(String nome, String sobrenome, String dataNascimento, String email,
-                                String telefone, String cep, String endereco, String usuario, String senha) {
+    public UsuarioDTO(String nome, String dataNascimento,
+                      String email, String telefone,
+                      String cep, String endereco,
+                      String usuario, String senha, String perfil) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.telefone = telefone;
@@ -29,6 +31,7 @@ public class VoluntarioServicoDTO {
         this.endereco = endereco;
         this.usuario = usuario;
         this.senha = senha;
+        this.perfil = perfil;
     }
 
     public String getNome() {
@@ -37,14 +40,6 @@ public class VoluntarioServicoDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getDataNascimento() {
@@ -103,9 +98,16 @@ public class VoluntarioServicoDTO {
         this.senha = senha;
     }
 
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+
     public static final class Builder {
         private String nome;
-        private String sobrenome;
         private String dataNascimento;
         private String email;
         private String telefone;
@@ -113,21 +115,17 @@ public class VoluntarioServicoDTO {
         private String endereco;
         private String usuario;
         private String senha;
+        private String perfil;
 
         private Builder() {
         }
 
-        public static Builder aVoluntarioDTO() {
+        public static Builder anUsuarioDTO() {
             return new Builder();
         }
 
         public Builder withNome(String nome) {
             this.nome = nome;
-            return this;
-        }
-
-        public Builder withSobrenome(String sobrenome) {
-            this.sobrenome = sobrenome;
             return this;
         }
 
@@ -166,18 +164,23 @@ public class VoluntarioServicoDTO {
             return this;
         }
 
-        public VoluntarioServicoDTO build() {
-            VoluntarioServicoDTO voluntarioServicoDTO = new VoluntarioServicoDTO();
-            voluntarioServicoDTO.setNome(nome);
-            voluntarioServicoDTO.setSobrenome(sobrenome);
-            voluntarioServicoDTO.setDataNascimento(dataNascimento);
-            voluntarioServicoDTO.setEmail(email);
-            voluntarioServicoDTO.setTelefone(telefone);
-            voluntarioServicoDTO.setCep(cep);
-            voluntarioServicoDTO.setEndereco(endereco);
-            voluntarioServicoDTO.setUsuario(usuario);
-            voluntarioServicoDTO.setSenha(senha);
-            return voluntarioServicoDTO;
+        public Builder withPerfil(String perfil) {
+            this.perfil = perfil;
+            return this;
+        }
+
+        public UsuarioDTO build() {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setNome(nome);
+            usuarioDTO.setDataNascimento(dataNascimento);
+            usuarioDTO.setEmail(email);
+            usuarioDTO.setTelefone(telefone);
+            usuarioDTO.setCep(cep);
+            usuarioDTO.setEndereco(endereco);
+            usuarioDTO.setUsuario(usuario);
+            usuarioDTO.setSenha(senha);
+            usuarioDTO.setPerfil(perfil);
+            return usuarioDTO;
         }
     }
 

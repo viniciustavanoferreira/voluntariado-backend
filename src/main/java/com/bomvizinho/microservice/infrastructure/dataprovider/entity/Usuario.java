@@ -134,4 +134,96 @@ public class Usuario  implements Serializable {
         this.disponibilidade = disponibilidade;
     }
 
+    public static final class Builder {
+        private Long id;
+        private String nome;
+        private String senha;
+        private String email;
+        private String endereco;
+        private String telefone;
+        private Date dataNascimento;
+        private String bloco;
+        private String numeroAp;
+        private String tipoPerfil;
+        private String disponibilidade;
+
+        private Builder() {
+        }
+
+        public static Builder anUsuario() {
+            return new Builder();
+        }
+
+        public Builder withId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withNome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder withSenha(String senha) {
+            this.senha = senha;
+            return this;
+        }
+
+        public Builder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder withEndereco(String endereco) {
+            this.endereco = endereco;
+            return this;
+        }
+
+        public Builder withTelefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder withDataNascimento(Date dataNascimento) {
+            this.dataNascimento = dataNascimento;
+            return this;
+        }
+
+        public Builder withBloco(String bloco) {
+            this.bloco = bloco;
+            return this;
+        }
+
+        public Builder withNumeroAp(String numeroAp) {
+            this.numeroAp = numeroAp;
+            return this;
+        }
+
+        public Builder withTipoPerfil(String tipoPerfil) {
+            this.tipoPerfil = tipoPerfil;
+            return this;
+        }
+
+        public Builder withDisponibilidade(String disponibilidade) {
+            this.disponibilidade = disponibilidade;
+            return this;
+        }
+
+        public Usuario build() {
+            Usuario usuario = new Usuario();
+            usuario.setId(id);
+            usuario.setNome(nome);
+            usuario.setSenha(senha);
+            usuario.setEmail(email);
+            usuario.setEndereco(endereco);
+            usuario.setTelefone(telefone);
+            usuario.setDataNascimento(dataNascimento);
+            usuario.setBloco(bloco);
+            usuario.setNumeroAp(numeroAp);
+            usuario.setTipoPerfil(tipoPerfil);
+            usuario.setDisponibilidade(disponibilidade);
+            return usuario;
+        }
+    }
+
 }

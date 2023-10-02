@@ -31,7 +31,7 @@ public class BuscarUsuarioUseCase {
         LOG.info("Inicio - Busca de usuario por email");
 
         final var usuario = usuarioRepository.getUsuarioByEmail(email);
-        if(usuario.isEmpty()){
+        if (usuario.isEmpty()){
             LOG.info("Fim - Busca de usuario por email - Nao existe usuario com o email informado");
             return null;
         }
