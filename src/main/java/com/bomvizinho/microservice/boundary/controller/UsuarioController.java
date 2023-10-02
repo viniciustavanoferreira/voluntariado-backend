@@ -1,6 +1,8 @@
 package com.bomvizinho.microservice.boundary.controller;
 
+import com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase;
 import com.bomvizinho.microservice.boundary.controller.dto.login.UsuarioDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.MessageDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO;
 import com.bomvizinho.microservice.application.service.EmailService;
@@ -12,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/api/usuario")
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
     private final EmailService emailService;
+    private final CadastrarUsuarioUseCase cadastrarUsuarioUseCase;
 
-    public UsuarioController(UsuarioService usuarioService, EmailService emailService) {
-        this.usuarioService = usuarioService;
+    public UsuarioController(CadastrarUsuarioUseCase cadastrarUsuarioUseCase,
+                             EmailService emailService) {
+        this.cadastrarUsuarioUseCase = cadastrarUsuarioUseCase;
         this.emailService = emailService;
     }
 
@@ -38,8 +41,12 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<String> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        return ResponseEntity.ok("Usuário cadastrado com sucesso!");
+    public ResponseEntity<MessageDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        cadastrarUsuarioUseCase.execute(usuarioDTO);
+        return ResponseEntity.ok(MessageDTO.Builder
+                .aMessageDTO()
+                    .withMessage("Usuário cadastrado com sucesso!")
+                .build());
     }
 
     @PostMapping("/idoso")
