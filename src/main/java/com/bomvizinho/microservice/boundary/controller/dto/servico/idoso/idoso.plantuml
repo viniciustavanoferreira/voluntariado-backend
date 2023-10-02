@@ -1,0 +1,219 @@
+@startuml
+
+title __IDOSO's Class Diagram__\n
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO {
+              - cep : String
+              - dataNascimento : String
+              - email : String
+              - endereco : String
+              - nome : String
+              - senha : String
+              - servicoIdosoDTOList : List<ServicoIdosoDTO>
+              - telefone : String
+              - usuario : String
+              + IdosoDTO()
+              + IdosoDTO()
+              + getCep()
+              + getDataNascimento()
+              + getEmail()
+              + getEndereco()
+              + getNome()
+              + getSenha()
+              + getServicoDTOList()
+              + getTelefone()
+              + getUsuario()
+              + setCep()
+              + setDataNascimento()
+              + setEmail()
+              + setEndereco()
+              + setNome()
+              + setSenha()
+              + setServicoDTOList()
+              + setTelefone()
+              + setUsuario()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO.Builder {
+              - cep : String
+              - dataNascimento : String
+              - email : String
+              - endereco : String
+              - nome : String
+              - senha : String
+              - servicoIdosoDTOList : List<ServicoIdosoDTO>
+              - telefone : String
+              - usuario : String
+              {static} + anIdosoDTO()
+              + build()
+              + withCep()
+              + withDataNascimento()
+              + withEmail()
+              + withEndereco()
+              + withNome()
+              + withSenha()
+              + withServicoDTOList()
+              + withTelefone()
+              + withUsuario()
+              - Builder()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO {
+              - dataFim : String
+              - dataInicio : String
+              - numero : String
+              - tipoServico : String
+              + ServicoIdosoDTO()
+              + ServicoIdosoDTO()
+              + getDataFim()
+              + getDataInicio()
+              + getNumero()
+              + getTipoServico()
+              + getVoluntarioServicoDTO()
+              + setDataFim()
+              + setDataInicio()
+              + setNumero()
+              + setTipoServico()
+              + setVoluntarioServicoDTO()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO.Builder {
+              - dataFim : String
+              - dataInicio : String
+              - numero : String
+              - tipoServico : String
+              {static} + aServicoDTO()
+              + build()
+              + withDataFim()
+              + withDataInicio()
+              + withNumero()
+              + withTipoServico()
+              + withVoluntarioServicoDTO()
+              - Builder()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO {
+              - cep : String
+              - dataNascimento : String
+              - email : String
+              - endereco : String
+              - nome : String
+              - senha : String
+              - sobrenome : String
+              - telefone : String
+              - usuario : String
+              + VoluntarioServicoDTO()
+              + VoluntarioServicoDTO()
+              + getCep()
+              + getDataNascimento()
+              + getEmail()
+              + getEndereco()
+              + getNome()
+              + getSenha()
+              + getSobrenome()
+              + getTelefone()
+              + getUsuario()
+              + setCep()
+              + setDataNascimento()
+              + setEmail()
+              + setEndereco()
+              + setNome()
+              + setSenha()
+              + setSobrenome()
+              + setTelefone()
+              + setUsuario()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.servico {
+        namespace idoso {
+          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO.Builder {
+              - cep : String
+              - dataNascimento : String
+              - email : String
+              - endereco : String
+              - nome : String
+              - senha : String
+              - sobrenome : String
+              - telefone : String
+              - usuario : String
+              {static} + aVoluntarioDTO()
+              + build()
+              + withCep()
+              + withDataNascimento()
+              + withEmail()
+              + withEndereco()
+              + withNome()
+              + withSenha()
+              + withSobrenome()
+              + withTelefone()
+              + withUsuario()
+              - Builder()
+          }
+        }
+      }
+    }
+  }
+  
+
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO o-- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO : voluntarioServicoDTO
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO.Builder o-- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO : voluntarioServicoDTO
+  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO.Builder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
