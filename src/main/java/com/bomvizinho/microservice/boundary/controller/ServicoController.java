@@ -1,10 +1,10 @@
 package com.bomvizinho.microservice.boundary.controller;
 
-import com.bomvizinho.microservice.boundary.controller.dto.servico.ServicoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.request.servico.ServicoDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.IdosoDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.ServicoIdosoDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.VoluntarioServicoDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

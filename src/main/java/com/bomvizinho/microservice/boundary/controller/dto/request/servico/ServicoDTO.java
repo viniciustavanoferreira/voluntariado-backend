@@ -1,4 +1,4 @@
-package com.bomvizinho.microservice.boundary.controller.dto.servico;
+package com.bomvizinho.microservice.boundary.controller.dto.request.servico;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
