@@ -17,8 +17,8 @@ public class Servico implements Serializable {
     @Column(name = "id_servico")
     private Long id;
 
-    @Column(name = "ordem", length = 45)
-    private String ordem;
+    @Column(name = "tipo_servico", length = 45)
+    private String tipoServico;
 
     @Column(name = "data_hora_inicio")
     private Timestamp dataInicio;
@@ -48,12 +48,12 @@ public class Servico implements Serializable {
         this.id = id;
     }
 
-    public String getOrdem() {
-        return ordem;
+    public String getTipoServico() {
+        return tipoServico;
     }
 
-    public void setOrdem(String ordem) {
-        this.ordem = ordem;
+    public void setTipoServico(String tipoServico) {
+        this.tipoServico = tipoServico;
     }
 
     public Timestamp getDataInicio() {

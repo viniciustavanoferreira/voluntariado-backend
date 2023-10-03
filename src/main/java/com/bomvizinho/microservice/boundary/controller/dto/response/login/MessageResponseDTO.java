@@ -1,14 +1,14 @@
-package com.bomvizinho.microservice.boundary.controller.dto.response;
+package com.bomvizinho.microservice.boundary.controller.dto.response.login;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class MessageDTO {
+public class MessageResponseDTO {
 
     private String message;
 
     @JsonCreator
 
-    public MessageDTO(String message) {
+    public MessageResponseDTO(String message) {
         this.message = message;
     }
 
@@ -35,8 +35,8 @@ public class MessageDTO {
             return this;
         }
 
-        public MessageDTO build() {
-            return new MessageDTO(message);
+        public MessageResponseDTO build() {
+            return new MessageResponseDTO(message);
         }
     }
 

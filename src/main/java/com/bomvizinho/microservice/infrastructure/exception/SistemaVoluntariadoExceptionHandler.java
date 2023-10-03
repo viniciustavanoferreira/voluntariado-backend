@@ -37,6 +37,11 @@ public class SistemaVoluntariadoExceptionHandler extends ResponseEntityException
         return handleExceptionInternal(ex, new Error("Alterar senha", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
+    @ExceptionHandler({BuscarVoluntarioException.class})
+    public ResponseEntity<Object> handleBuscarVoluntarioException(BuscarVoluntarioException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Buscar voluntario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
     public static class Error {
         private final String message;
         private final String exception;

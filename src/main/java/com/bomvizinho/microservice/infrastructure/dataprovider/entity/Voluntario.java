@@ -24,7 +24,7 @@ public class Voluntario implements Serializable {
     private String habilidade;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario_idoso", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario_voluntario", referencedColumnName = "id_usuario")
     private Usuario usuarioVoluntario;
 
     @OneToMany(mappedBy = "voluntarioServico", cascade = CascadeType.ALL)
