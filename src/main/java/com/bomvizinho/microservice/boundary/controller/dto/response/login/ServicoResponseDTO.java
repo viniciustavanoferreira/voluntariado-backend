@@ -9,18 +9,18 @@ public class ServicoResponseDTO {
     private Long id;
     private Timestamp dataHoraFim;
     private Timestamp dataHoraInicio;
+    private String ordem;
     private String destino;
     private String tipoServico;
     private String status;
 
     @JsonCreator
-
-    public ServicoResponseDTO(Long id, Timestamp dataHoraFim,
-                              Timestamp dataHoraInicio, String destino,
-                              String tipoServico, String status) {
+    public ServicoResponseDTO(Long id, Timestamp dataHoraFim, Timestamp dataHoraInicio,
+                              String ordem, String destino, String tipoServico, String status) {
         this.id = id;
         this.dataHoraFim = dataHoraFim;
         this.dataHoraInicio = dataHoraInicio;
+        this.ordem = ordem;
         this.destino = destino;
         this.tipoServico = tipoServico;
         this.status = status;
@@ -48,6 +48,14 @@ public class ServicoResponseDTO {
 
     public void setDataHoraInicio(Timestamp dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
+    }
+
+    public String getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(String ordem) {
+        this.ordem = ordem;
     }
 
     public String getDestino() {
@@ -78,6 +86,7 @@ public class ServicoResponseDTO {
         private Long id;
         private Timestamp dataHoraFim;
         private Timestamp dataHoraInicio;
+        private String ordem;
         private String destino;
         private String tipoServico;
         private String status;
@@ -104,6 +113,11 @@ public class ServicoResponseDTO {
             return this;
         }
 
+        public Builder withOrdem(String ordem) {
+            this.ordem = ordem;
+            return this;
+        }
+
         public Builder withDestino(String destino) {
             this.destino = destino;
             return this;
@@ -120,7 +134,7 @@ public class ServicoResponseDTO {
         }
 
         public ServicoResponseDTO build() {
-            return new ServicoResponseDTO(id, dataHoraFim, dataHoraInicio, destino, tipoServico, status);
+            return new ServicoResponseDTO(id, dataHoraFim, dataHoraInicio, ordem, destino, tipoServico, status);
         }
     }
 

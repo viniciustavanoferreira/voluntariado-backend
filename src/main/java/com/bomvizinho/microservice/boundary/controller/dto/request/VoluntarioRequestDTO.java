@@ -9,7 +9,6 @@ public class VoluntarioRequestDTO {
     private UsuarioRequestDTO usuarioRequestDTO;
 
     @JsonCreator
-
     public VoluntarioRequestDTO(String preferencia, String habilidade, UsuarioRequestDTO usuarioRequestDTO) {
         this.preferencia = preferencia;
         this.habilidade = habilidade;
