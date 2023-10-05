@@ -47,6 +47,51 @@ public class SistemaVoluntariadoExceptionHandler extends ResponseEntityException
         return handleExceptionInternal(ex, new Error("Alterar voluntario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
+    @ExceptionHandler({CriarOuAlterarVoluntarioException.class})
+    public ResponseEntity<Object> handleCriarOuAlterarVoluntarioException(CriarOuAlterarVoluntarioException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Criar ou alterar voluntario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({BuscarIdosoException.class})
+    public ResponseEntity<Object> handleBuscarIdosoException(BuscarIdosoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Buscar idoso", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({AlterarIdosoException.class})
+    public ResponseEntity<Object> handleAlterarIdosoException(AlterarIdosoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Alterar idoso", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({CriarOuAlterarIdosoException.class})
+    public ResponseEntity<Object> handleCriarOuAlterarIdosoException(CriarOuAlterarVoluntarioException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Criar ou alterar idoso", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({BuscarServicoException.class})
+    public ResponseEntity<Object> handleBuscarServicoException(BuscarServicoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Buscar servico", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({ManterServicoException.class})
+    public ResponseEntity<Object> handleManterServicoException(ManterServicoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Manter servico", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({DeletarServicoException.class})
+    public ResponseEntity<Object> handleDeletarServicoException(DeletarServicoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Manter servico", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({CriarOuAlterarServicoException.class})
+    public ResponseEntity<Object> handleCriarOuAlterarServicoException(CriarOuAlterarServicoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Criar ou alterar servico", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({CriarServicoException.class})
+    public ResponseEntity<Object> handleCriarServicoException(CriarServicoException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Criar servico", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
     public static class Error {
         private final String message;
         private final String exception;

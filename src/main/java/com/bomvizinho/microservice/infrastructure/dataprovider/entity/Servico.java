@@ -26,7 +26,10 @@ public class Servico implements Serializable {
     @Column(name = "data_hora_fim")
     private Timestamp dataFim;
 
-    @Column(name = "destino", length = 30)
+    @Column(name = "ordem", length = 50)
+    private String ordem;
+
+    @Column(name = "destino", length = 100)
     private String destino;
 
     @Column(name = "status", length = 30)
@@ -72,6 +75,14 @@ public class Servico implements Serializable {
         this.dataFim = dataFim;
     }
 
+    public String getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(String ordem) {
+        this.ordem = ordem;
+    }
+
     public String getDestino() {
         return destino;
     }
@@ -102,6 +113,84 @@ public class Servico implements Serializable {
 
     public void setVoluntarioServico(Voluntario voluntarioServico) {
         this.voluntarioServico = voluntarioServico;
+    }
+
+    public static final class Builder {
+        private Long id;
+        private String tipoServico;
+        private Timestamp dataInicio;
+        private Timestamp dataFim;
+        private String ordem;
+        private String destino;
+        private String status;
+        private Idoso idosoServico;
+        private Voluntario voluntarioServico;
+
+        private Builder() {
+        }
+
+        public static Builder aServico() {
+            return new Builder();
+        }
+
+        public Builder withId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withTipoServico(String tipoServico) {
+            this.tipoServico = tipoServico;
+            return this;
+        }
+
+        public Builder withDataInicio(Timestamp dataInicio) {
+            this.dataInicio = dataInicio;
+            return this;
+        }
+
+        public Builder withDataFim(Timestamp dataFim) {
+            this.dataFim = dataFim;
+            return this;
+        }
+
+        public Builder withOrdem(String ordem) {
+            this.ordem = ordem;
+            return this;
+        }
+
+        public Builder withDestino(String destino) {
+            this.destino = destino;
+            return this;
+        }
+
+        public Builder withStatus(String status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder withIdosoServico(Idoso idosoServico) {
+            this.idosoServico = idosoServico;
+            return this;
+        }
+
+        public Builder withVoluntarioServico(Voluntario voluntarioServico) {
+            this.voluntarioServico = voluntarioServico;
+            return this;
+        }
+
+        public Servico build() {
+            Servico servico = new Servico();
+            servico.setId(id);
+            servico.setTipoServico(tipoServico);
+            servico.setDataInicio(dataInicio);
+            servico.setDataFim(dataFim);
+            servico.setOrdem(ordem);
+            servico.setDestino(destino);
+            servico.setStatus(status);
+            servico.setIdosoServico(idosoServico);
+            servico.setVoluntarioServico(voluntarioServico);
+            return servico;
+        }
     }
 
 }

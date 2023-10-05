@@ -51,11 +51,12 @@ public class LoginResponseDTOMapper {
                                         ServicoResponseDTO.Builder
                                                 .aServicoResponseDTO()
                                                     .withId(servico.getId())
+                                                    .withTipoServico(servico.getTipoServico())
                                                     .withDataHoraFim(servico.getDataFim())
                                                     .withDataHoraInicio(servico.getDataInicio())
+                                                    .withOrdem(servico.getOrdem())
                                                     .withDestino(servico.getDestino())
                                                     .withStatus(servico.getStatus())
-                                                    .withTipoServico(servico.getTipoServico())
                                                 .build()
                                 ).collect(Collectors.toList()))
                 .build();

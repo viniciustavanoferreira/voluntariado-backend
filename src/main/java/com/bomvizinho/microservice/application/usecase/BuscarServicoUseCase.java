@@ -32,15 +32,15 @@ public class BuscarServicoUseCase {
     private List<Servico> buscarServicoVoluntario(Long idVoluntario) {
         LOG.info("Inicio - Busca de servico por voluntario");
 
-        final var servico = servicoRepository.findByVoluntarioServicoId(idVoluntario);
-        if (servico.isEmpty()){
+        final var servicos = servicoRepository.findByVoluntarioServicoId(idVoluntario);
+        if (servicos.isEmpty()){
             LOG.info("Fim - Busca de servico por voluntario - Nao existem servicos para o voluntario informado");
             return null;
         }
 
         LOG.info("Fim - Busca de servico por voluntario");
 
-        return servico;
+        return servicos;
     }
 
     public List<Servico> executeByIdoso(final Long idIdoso){
@@ -52,15 +52,35 @@ public class BuscarServicoUseCase {
     private List<Servico> buscarServicoIdoso(Long idIdoso) {
         LOG.info("Inicio - Busca de servico por idoso");
 
-        final var servico = servicoRepository.findByIdosoServicoId(idIdoso);
-        if (servico.isEmpty()){
+        final var servicos = servicoRepository.findByIdosoServicoId(idIdoso);
+        if (servicos.isEmpty()){
             LOG.info("Fim - Busca de servico por idoso - Nao existem servicos para o idoso informado");
             return null;
         }
 
         LOG.info("Fim - Busca de servico por idoso");
 
-        return servico;
+        return servicos;
+    }
+
+    public List<Servico> executeById(final Long codigoServico){
+        return retryTemplate
+                .execute(context -> buscarServicoCodigo(codigoServico),
+                        context -> failedToExecute());
+    }
+
+    private List<Servico> buscarServicoCodigo(final Long codigoServico) {
+        LOG.info("Inicio - Busca de servico por codigo");
+
+        final var servicos = servicoRepository.findById(codigoServico);
+        if (servicos.isEmpty()){
+            LOG.info("Fim - Busca de servico por codigo - Nao existe servico para o codigo informado");
+            return null;
+        }
+
+        LOG.info("Fim - Busca de servico por codigo");
+
+        return servicos.stream().toList();
     }
 
     private List<Servico> failedToExecute() {
