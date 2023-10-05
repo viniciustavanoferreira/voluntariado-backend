@@ -1,12 +1,11 @@
-package com.bomvizinho.microservice.boundary.controller.dto.response.login;
+package com.bomvizinho.microservice.boundary.controller.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.sql.Date;
 
-public class UsuarioResponseDTO {
+public class UsuarioRequestDTO {
 
-    private Long id;
     private String nome;
     private String usuario;
     private String senha;
@@ -24,14 +23,18 @@ public class UsuarioResponseDTO {
     private String perfil;
     private String disponibilidade;
 
+    public UsuarioRequestDTO() {
+    }
+
     @JsonCreator
-    public UsuarioResponseDTO(Long id, String nome, String usuario,
-                              String senha, String email, String cep,
-                              String endereco, String bairro, String cidade,
-                              String estado, String complemento, String bloco,
-                              String numeroAp, String telefone, Date dataNascimento,
-                              String perfil, String disponibilidade) {
-        this.id = id;
+    public UsuarioRequestDTO(String nome, String usuario,
+                             String senha, String email,
+                             String cep, String endereco,
+                             String bairro, String cidade,
+                             String estado, String complemento,
+                             String bloco, String numeroAp,
+                             String telefone, Date dataNascimento,
+                             String perfil, String disponibilidade) {
         this.nome = nome;
         this.usuario = usuario;
         this.senha = senha;
@@ -48,14 +51,6 @@ public class UsuarioResponseDTO {
         this.dataNascimento = dataNascimento;
         this.perfil = perfil;
         this.disponibilidade = disponibilidade;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -187,7 +182,6 @@ public class UsuarioResponseDTO {
     }
 
     public static final class Builder {
-        private Long id;
         private String nome;
         private String usuario;
         private String senha;
@@ -208,13 +202,8 @@ public class UsuarioResponseDTO {
         private Builder() {
         }
 
-        public static Builder anUsuarioResponseDTO() {
+        public static Builder anUsuarioRequestDTO() {
             return new Builder();
-        }
-
-        public Builder withId(Long id) {
-            this.id = id;
-            return this;
         }
 
         public Builder withNome(String nome) {
@@ -297,8 +286,25 @@ public class UsuarioResponseDTO {
             return this;
         }
 
-        public UsuarioResponseDTO build() {
-            return new UsuarioResponseDTO(id, nome, usuario, senha, email, cep, endereco, bairro, cidade, estado, complemento, bloco, numeroAp, telefone, dataNascimento, perfil, disponibilidade);
+        public UsuarioRequestDTO build() {
+            UsuarioRequestDTO usuarioRequestDTO = new UsuarioRequestDTO();
+            usuarioRequestDTO.setNome(nome);
+            usuarioRequestDTO.setUsuario(usuario);
+            usuarioRequestDTO.setSenha(senha);
+            usuarioRequestDTO.setEmail(email);
+            usuarioRequestDTO.setCep(cep);
+            usuarioRequestDTO.setEndereco(endereco);
+            usuarioRequestDTO.setBairro(bairro);
+            usuarioRequestDTO.setCidade(cidade);
+            usuarioRequestDTO.setEstado(estado);
+            usuarioRequestDTO.setComplemento(complemento);
+            usuarioRequestDTO.setBloco(bloco);
+            usuarioRequestDTO.setNumeroAp(numeroAp);
+            usuarioRequestDTO.setTelefone(telefone);
+            usuarioRequestDTO.setDataNascimento(dataNascimento);
+            usuarioRequestDTO.setPerfil(perfil);
+            usuarioRequestDTO.setDisponibilidade(disponibilidade);
+            return usuarioRequestDTO;
         }
     }
 

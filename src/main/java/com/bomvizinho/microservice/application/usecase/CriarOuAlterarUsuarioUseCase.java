@@ -1,6 +1,6 @@
 package com.bomvizinho.microservice.application.usecase;
 
-import com.bomvizinho.microservice.application.exception.CriarUsuarioException;
+import com.bomvizinho.microservice.application.exception.CriarOuAlterarUsuarioException;
 import com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario;
 import com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository;
 import org.slf4j.Logger;
@@ -20,29 +20,24 @@ public class CriarOuAlterarUsuarioUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public void execute(final Usuario usuario) {
-        final var failedToExecute = retryTemplate
+    public Usuario execute(final Usuario usuario) {
+        return retryTemplate
                      .execute(context -> criarOuAlterarUsuario(usuario),
                               context -> failedToExecute());
-
-        if (failedToExecute)
-            throw new CriarUsuarioException("Falha ao tentar criar ou alterar usuario");
     }
 
-    private boolean criarOuAlterarUsuario(final Usuario usuario) {
+    private Usuario criarOuAlterarUsuario(final Usuario usuario) {
         LOG.info("Inicio - Criar ou alterar usuario");
 
-        usuarioRepository.save(usuario);
+        Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
         LOG.info("Fim - Criar ou alterar usuario - Sucesso nesta operacao com o banco de dados");
 
-        return false;
+        return usuarioSalvo;
     }
 
-    private boolean failedToExecute() {
-        LOG.error("Tentativas esgotadas - Nao foi possivel criar ou alterar o usuario no banco de dados");
-
-        return true;
+    private Usuario failedToExecute() {
+        throw new CriarOuAlterarUsuarioException("Tentativas esgotadas - Nao foi possivel criar ou alterar o usuario no banco de dados");
     }
 
 }

@@ -13,8 +13,11 @@ public class Usuario  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_usuario")
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "id_usuario", length = 50)
+    private String idUsuario;
 
     @Column(name = "nome", length = 50)
     private String nome;
@@ -25,14 +28,23 @@ public class Usuario  implements Serializable {
     @Column(name = "email", length = 100)
     private String email;
 
+    @Column(name = "cep", length = 8)
+    private String cep;
+
     @Column(name = "endereco", length = 100)
     private String endereco;
 
-    @Column(name = "telefone", length = 20)
-    private String telefone;
+    @Column(name = "bairro", length = 100)
+    private String bairro;
 
-    @Column(name = "nascimento")
-    private Date dataNascimento;
+    @Column(name = "cidade", length = 100)
+    private String cidade;
+
+    @Column(name = "estado", length = 100)
+    private String estado;
+
+    @Column(name = "complemento", length = 100)
+    private String complemento;
 
     @Column(name = "bloco", length = 10)
     private String bloco;
@@ -40,8 +52,14 @@ public class Usuario  implements Serializable {
     @Column(name = "numero_ap", length = 10)
     private String numeroAp;
 
-    @Column(name = "tipo_perfil", length = 50)
-    private String tipoPerfil;
+    @Column(name = "telefone", length = 20)
+    private String telefone;
+
+    @Column(name = "nascimento")
+    private Date dataNascimento;
+
+    @Column(name = "perfil", length = 50)
+    private String perfil;
 
     @Column(name = "disponibilidade", length = 45)
     private String disponibilidade;
@@ -52,6 +70,14 @@ public class Usuario  implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -78,6 +104,14 @@ public class Usuario  implements Serializable {
         this.email = email;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -86,20 +120,36 @@ public class Usuario  implements Serializable {
         this.endereco = endereco;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getBairro() {
+        return bairro;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public String getBloco() {
@@ -118,12 +168,28 @@ public class Usuario  implements Serializable {
         this.numeroAp = numeroAp;
     }
 
-    public String getTipoPerfil() {
-        return tipoPerfil;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTipoPerfil(String tipoPerfil) {
-        this.tipoPerfil = tipoPerfil;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
     public String getDisponibilidade() {
@@ -136,15 +202,21 @@ public class Usuario  implements Serializable {
 
     public static final class Builder {
         private Long id;
+        private String idUsuario;
         private String nome;
         private String senha;
         private String email;
+        private String cep;
         private String endereco;
-        private String telefone;
-        private Date dataNascimento;
+        private String bairro;
+        private String cidade;
+        private String estado;
+        private String complemento;
         private String bloco;
         private String numeroAp;
-        private String tipoPerfil;
+        private String telefone;
+        private Date dataNascimento;
+        private String perfil;
         private String disponibilidade;
 
         private Builder() {
@@ -156,6 +228,11 @@ public class Usuario  implements Serializable {
 
         public Builder withId(Long id) {
             this.id = id;
+            return this;
+        }
+
+        public Builder withIdUsuario(String idUsuario) {
+            this.idUsuario = idUsuario;
             return this;
         }
 
@@ -174,18 +251,33 @@ public class Usuario  implements Serializable {
             return this;
         }
 
+        public Builder withCep(String cep) {
+            this.cep = cep;
+            return this;
+        }
+
         public Builder withEndereco(String endereco) {
             this.endereco = endereco;
             return this;
         }
 
-        public Builder withTelefone(String telefone) {
-            this.telefone = telefone;
+        public Builder withBairro(String bairro) {
+            this.bairro = bairro;
             return this;
         }
 
-        public Builder withDataNascimento(Date dataNascimento) {
-            this.dataNascimento = dataNascimento;
+        public Builder withCidade(String cidade) {
+            this.cidade = cidade;
+            return this;
+        }
+
+        public Builder withEstado(String estado) {
+            this.estado = estado;
+            return this;
+        }
+
+        public Builder withComplemento(String complemento) {
+            this.complemento = complemento;
             return this;
         }
 
@@ -199,8 +291,18 @@ public class Usuario  implements Serializable {
             return this;
         }
 
-        public Builder withTipoPerfil(String tipoPerfil) {
-            this.tipoPerfil = tipoPerfil;
+        public Builder withTelefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder withDataNascimento(Date dataNascimento) {
+            this.dataNascimento = dataNascimento;
+            return this;
+        }
+
+        public Builder withPerfil(String perfil) {
+            this.perfil = perfil;
             return this;
         }
 
@@ -212,15 +314,21 @@ public class Usuario  implements Serializable {
         public Usuario build() {
             Usuario usuario = new Usuario();
             usuario.setId(id);
+            usuario.setIdUsuario(idUsuario);
             usuario.setNome(nome);
             usuario.setSenha(senha);
             usuario.setEmail(email);
+            usuario.setCep(cep);
             usuario.setEndereco(endereco);
-            usuario.setTelefone(telefone);
-            usuario.setDataNascimento(dataNascimento);
+            usuario.setBairro(bairro);
+            usuario.setCidade(cidade);
+            usuario.setEstado(estado);
+            usuario.setComplemento(complemento);
             usuario.setBloco(bloco);
             usuario.setNumeroAp(numeroAp);
-            usuario.setTipoPerfil(tipoPerfil);
+            usuario.setTelefone(telefone);
+            usuario.setDataNascimento(dataNascimento);
+            usuario.setPerfil(perfil);
             usuario.setDisponibilidade(disponibilidade);
             return usuario;
         }

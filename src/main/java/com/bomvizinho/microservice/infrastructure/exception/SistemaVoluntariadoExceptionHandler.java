@@ -22,8 +22,8 @@ public class SistemaVoluntariadoExceptionHandler extends ResponseEntityException
         return handleExceptionInternal(ex, new Error("Buscar usuario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
-    @ExceptionHandler({CriarUsuarioException.class})
-    public ResponseEntity<Object> handleCriarUsuarioException(CriarUsuarioException ex, WebRequest request) {
+    @ExceptionHandler({CriarOuAlterarUsuarioException.class})
+    public ResponseEntity<Object> handleCriarUsuarioException(CriarOuAlterarUsuarioException ex, WebRequest request) {
         return handleExceptionInternal(ex, new Error("Criar usuario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
@@ -40,6 +40,11 @@ public class SistemaVoluntariadoExceptionHandler extends ResponseEntityException
     @ExceptionHandler({BuscarVoluntarioException.class})
     public ResponseEntity<Object> handleBuscarVoluntarioException(BuscarVoluntarioException ex, WebRequest request) {
         return handleExceptionInternal(ex, new Error("Buscar voluntario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler({AlterarVoluntarioException.class})
+    public ResponseEntity<Object> handleAlterarVoluntarioException(AlterarVoluntarioException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new Error("Alterar voluntario", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
     public static class Error {
