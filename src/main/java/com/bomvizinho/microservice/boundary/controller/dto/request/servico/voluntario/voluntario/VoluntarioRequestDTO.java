@@ -1,8 +1,8 @@
-package com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso;
+package com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class VoluntarioServicoDTO {
+public class VoluntarioRequestDTO {
 
     private String nome;
     private String sobrenome;
@@ -14,11 +14,11 @@ public class VoluntarioServicoDTO {
     private String usuario;
     private String senha;
 
-    public VoluntarioServicoDTO() {
+    public VoluntarioRequestDTO() {
     }
 
     @JsonCreator
-    public VoluntarioServicoDTO(String nome, String sobrenome, String dataNascimento, String email,
+    public VoluntarioRequestDTO(String nome, String sobrenome, String dataNascimento, String email,
                                 String telefone, String cep, String endereco, String usuario, String senha) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -166,18 +166,18 @@ public class VoluntarioServicoDTO {
             return this;
         }
 
-        public VoluntarioServicoDTO build() {
-            VoluntarioServicoDTO voluntarioServicoDTO = new VoluntarioServicoDTO();
-            voluntarioServicoDTO.setNome(nome);
-            voluntarioServicoDTO.setSobrenome(sobrenome);
-            voluntarioServicoDTO.setDataNascimento(dataNascimento);
-            voluntarioServicoDTO.setEmail(email);
-            voluntarioServicoDTO.setTelefone(telefone);
-            voluntarioServicoDTO.setCep(cep);
-            voluntarioServicoDTO.setEndereco(endereco);
-            voluntarioServicoDTO.setUsuario(usuario);
-            voluntarioServicoDTO.setSenha(senha);
-            return voluntarioServicoDTO;
+        public VoluntarioRequestDTO build() {
+            VoluntarioRequestDTO voluntarioRequestDTO = new VoluntarioRequestDTO();
+            voluntarioRequestDTO.setNome(nome);
+            voluntarioRequestDTO.setSobrenome(sobrenome);
+            voluntarioRequestDTO.setDataNascimento(dataNascimento);
+            voluntarioRequestDTO.setEmail(email);
+            voluntarioRequestDTO.setTelefone(telefone);
+            voluntarioRequestDTO.setCep(cep);
+            voluntarioRequestDTO.setEndereco(endereco);
+            voluntarioRequestDTO.setUsuario(usuario);
+            voluntarioRequestDTO.setSenha(senha);
+            return voluntarioRequestDTO;
         }
     }
 

@@ -24,7 +24,7 @@ public class Voluntario implements Serializable {
     private String habilidade;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario_voluntario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario_voluntario", referencedColumnName = "id")
     private Usuario usuarioVoluntario;
 
     @OneToMany(mappedBy = "voluntarioServico", cascade = CascadeType.ALL)
@@ -68,6 +68,56 @@ public class Voluntario implements Serializable {
 
     public void setServicoVoluntario(List<Servico> servicoVoluntario) {
         this.servicoVoluntario = servicoVoluntario;
+    }
+
+    public static final class Builder {
+        private Long id;
+        private String preferencia;
+        private String habilidade;
+        private Usuario usuarioVoluntario;
+        private List<Servico> servicoVoluntario;
+
+        private Builder() {
+        }
+
+        public static Builder aVoluntario() {
+            return new Builder();
+        }
+
+        public Builder withId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withPreferencia(String preferencia) {
+            this.preferencia = preferencia;
+            return this;
+        }
+
+        public Builder withHabilidade(String habilidade) {
+            this.habilidade = habilidade;
+            return this;
+        }
+
+        public Builder withUsuarioVoluntario(Usuario usuarioVoluntario) {
+            this.usuarioVoluntario = usuarioVoluntario;
+            return this;
+        }
+
+        public Builder withServicoVoluntario(List<Servico> servicoVoluntario) {
+            this.servicoVoluntario = servicoVoluntario;
+            return this;
+        }
+
+        public Voluntario build() {
+            Voluntario voluntario = new Voluntario();
+            voluntario.setId(id);
+            voluntario.setPreferencia(preferencia);
+            voluntario.setHabilidade(habilidade);
+            voluntario.setUsuarioVoluntario(usuarioVoluntario);
+            voluntario.setServicoVoluntario(servicoVoluntario);
+            return voluntario;
+        }
     }
 
 }

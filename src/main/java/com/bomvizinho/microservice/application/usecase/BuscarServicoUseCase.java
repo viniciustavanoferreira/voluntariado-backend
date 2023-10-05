@@ -45,8 +45,8 @@ public class BuscarServicoUseCase {
 
     public List<Servico> executeByIdoso(final Long idIdoso){
         return retryTemplate
-                .execute(context -> buscarServicoIdoso(idIdoso),
-                         context -> failedToExecute());
+                    .execute(context -> buscarServicoIdoso(idIdoso),
+                             context -> failedToExecute());
     }
 
     private List<Servico> buscarServicoIdoso(Long idIdoso) {

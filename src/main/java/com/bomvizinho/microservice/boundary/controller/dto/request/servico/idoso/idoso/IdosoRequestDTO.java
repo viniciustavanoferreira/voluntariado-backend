@@ -1,10 +1,13 @@
-package com.bomvizinho.microservice.boundary.controller.dto.request;
+package com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class UsuarioDTO {
+import java.util.List;
+
+public class IdosoRequestDTO {
 
     private String nome;
+
     private String dataNascimento;
     private String email;
     private String telefone;
@@ -13,16 +16,15 @@ public class UsuarioDTO {
     private String usuario;
     private String senha;
 
-    private String perfil;
+    private List<ServicoIdosoRequestDTO> servicoIdosoRequestDTOList;
 
-    public UsuarioDTO() {
+    public IdosoRequestDTO() {
     }
 
     @JsonCreator
-    public UsuarioDTO(String nome, String dataNascimento,
-                      String email, String telefone,
-                      String cep, String endereco,
-                      String usuario, String senha, String perfil) {
+    public IdosoRequestDTO(String nome, String dataNascimento,
+                           String email, String telefone, String cep, String endereco,
+                           String usuario, String senha, List<ServicoIdosoRequestDTO> servicoIdosoRequestDTOList) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.email = email;
@@ -31,7 +33,7 @@ public class UsuarioDTO {
         this.endereco = endereco;
         this.usuario = usuario;
         this.senha = senha;
-        this.perfil = perfil;
+        this.servicoIdosoRequestDTOList = servicoIdosoRequestDTOList;
     }
 
     public String getNome() {
@@ -98,12 +100,12 @@ public class UsuarioDTO {
         this.senha = senha;
     }
 
-    public String getPerfil() {
-        return perfil;
+    public List<ServicoIdosoRequestDTO> getServicoDTOList() {
+        return servicoIdosoRequestDTOList;
     }
 
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
+    public void setServicoDTOList(List<ServicoIdosoRequestDTO> servicoIdosoRequestDTOList) {
+        this.servicoIdosoRequestDTOList = servicoIdosoRequestDTOList;
     }
 
     public static final class Builder {
@@ -115,12 +117,12 @@ public class UsuarioDTO {
         private String endereco;
         private String usuario;
         private String senha;
-        private String perfil;
+        private List<ServicoIdosoRequestDTO> servicoIdosoRequestDTOList;
 
         private Builder() {
         }
 
-        public static Builder anUsuarioDTO() {
+        public static Builder anIdosoDTO() {
             return new Builder();
         }
 
@@ -164,23 +166,23 @@ public class UsuarioDTO {
             return this;
         }
 
-        public Builder withPerfil(String perfil) {
-            this.perfil = perfil;
+        public Builder withServicoDTOList(List<ServicoIdosoRequestDTO> servicoIdosoRequestDTOList) {
+            this.servicoIdosoRequestDTOList = servicoIdosoRequestDTOList;
             return this;
         }
 
-        public UsuarioDTO build() {
-            UsuarioDTO usuarioDTO = new UsuarioDTO();
-            usuarioDTO.setNome(nome);
-            usuarioDTO.setDataNascimento(dataNascimento);
-            usuarioDTO.setEmail(email);
-            usuarioDTO.setTelefone(telefone);
-            usuarioDTO.setCep(cep);
-            usuarioDTO.setEndereco(endereco);
-            usuarioDTO.setUsuario(usuario);
-            usuarioDTO.setSenha(senha);
-            usuarioDTO.setPerfil(perfil);
-            return usuarioDTO;
+        public IdosoRequestDTO build() {
+            IdosoRequestDTO idosoRequestDTO = new IdosoRequestDTO();
+            idosoRequestDTO.setNome(nome);
+            idosoRequestDTO.setDataNascimento(dataNascimento);
+            idosoRequestDTO.setEmail(email);
+            idosoRequestDTO.setTelefone(telefone);
+            idosoRequestDTO.setCep(cep);
+            idosoRequestDTO.setEndereco(endereco);
+            idosoRequestDTO.setUsuario(usuario);
+            idosoRequestDTO.setSenha(senha);
+            idosoRequestDTO.setServicoDTOList(servicoIdosoRequestDTOList);
+            return idosoRequestDTO;
         }
     }
 

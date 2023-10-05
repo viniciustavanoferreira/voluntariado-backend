@@ -2,25 +2,25 @@ package com.bomvizinho.microservice.boundary.controller.dto.request.servico.idos
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class ServicoIdosoDTO {
+public class ServicoIdosoRequestDTO {
 
     private String numero;
     private String tipoServico;
     private String dataInicio;
     private String dataFim;
-    private VoluntarioServicoDTO voluntarioServicoDTO;
+    private VoluntarioServicoRequestDTO voluntarioServicoRequestDTO;
 
-    public ServicoIdosoDTO() {
+    public ServicoIdosoRequestDTO() {
     }
 
     @JsonCreator
-    public ServicoIdosoDTO(String numero, String tipoServico, String dataInicio,
-                           String dataFim, VoluntarioServicoDTO voluntarioServicoDTO) {
+    public ServicoIdosoRequestDTO(String numero, String tipoServico, String dataInicio,
+                                  String dataFim, VoluntarioServicoRequestDTO voluntarioServicoRequestDTO) {
         this.numero = numero;
         this.tipoServico = tipoServico;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.voluntarioServicoDTO = voluntarioServicoDTO;
+        this.voluntarioServicoRequestDTO = voluntarioServicoRequestDTO;
     }
 
     public String getNumero() {
@@ -55,12 +55,12 @@ public class ServicoIdosoDTO {
         this.dataFim = dataFim;
     }
 
-    public VoluntarioServicoDTO getVoluntarioServicoDTO() {
-        return voluntarioServicoDTO;
+    public VoluntarioServicoRequestDTO getVoluntarioServicoDTO() {
+        return voluntarioServicoRequestDTO;
     }
 
-    public void setVoluntarioServicoDTO(VoluntarioServicoDTO voluntarioServicoDTO) {
-        this.voluntarioServicoDTO = voluntarioServicoDTO;
+    public void setVoluntarioServicoDTO(VoluntarioServicoRequestDTO voluntarioServicoRequestDTO) {
+        this.voluntarioServicoRequestDTO = voluntarioServicoRequestDTO;
     }
 
     public static final class Builder {
@@ -68,7 +68,7 @@ public class ServicoIdosoDTO {
         private String tipoServico;
         private String dataInicio;
         private String dataFim;
-        private VoluntarioServicoDTO voluntarioServicoDTO;
+        private VoluntarioServicoRequestDTO voluntarioServicoRequestDTO;
 
         private Builder() {
         }
@@ -97,13 +97,13 @@ public class ServicoIdosoDTO {
             return this;
         }
 
-        public Builder withVoluntarioServicoDTO(VoluntarioServicoDTO voluntarioServicoDTO) {
-            this.voluntarioServicoDTO = voluntarioServicoDTO;
+        public Builder withVoluntarioServicoDTO(VoluntarioServicoRequestDTO voluntarioServicoRequestDTO) {
+            this.voluntarioServicoRequestDTO = voluntarioServicoRequestDTO;
             return this;
         }
 
-        public ServicoIdosoDTO build() {
-            return new ServicoIdosoDTO(numero, tipoServico, dataInicio, dataFim, voluntarioServicoDTO);
+        public ServicoIdosoRequestDTO build() {
+            return new ServicoIdosoRequestDTO(numero, tipoServico, dataInicio, dataFim, voluntarioServicoRequestDTO);
         }
     }
 

@@ -21,28 +21,28 @@ public class BuscarUsuarioUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public Usuario execute(final String email) {
+    public Usuario execute(final String idUsuario) {
         return retryTemplate
-                    .execute(context -> buscarUsuario(email),
+                    .execute(context -> buscarUsuario(idUsuario),
                              context -> failedToExecute());
     }
 
-    private Usuario buscarUsuario(final String email) {
-        LOG.info("Inicio - Busca de usuario por email");
+    private Usuario buscarUsuario(final String idUsuario) {
+        LOG.info("Inicio - Busca de pessoa por usuario");
 
-        final var usuario = usuarioRepository.findByEmail(email);
+        final var usuario = usuarioRepository.findByIdUsuario(idUsuario);
         if (usuario.isEmpty()){
-            LOG.info("Fim - Busca de usuario por email - Nao existe usuario com o email informado");
+            LOG.info("Fim - Busca de pessoa por usuario - Nao existe pessoa com o usuario informado");
             return null;
         }
 
-        LOG.info("Fim - Busca de usuario por email");
+        LOG.info("Fim - Busca de pessoa por usuario");
 
         return usuario.get(0);
     }
 
     private Usuario failedToExecute() {
-        throw new BuscarUsuarioException("Tentativas esgotadas - Nao foi possivel buscar o usuario no banco de dados");
+        throw new BuscarUsuarioException("Tentativas esgotadas - Nao foi possivel buscar a pessoa no banco de dados");
     }
 
 }

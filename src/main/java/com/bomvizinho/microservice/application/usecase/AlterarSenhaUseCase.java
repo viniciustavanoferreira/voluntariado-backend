@@ -19,12 +19,12 @@ public class AlterarSenhaUseCase {
         this.criarOuAlterarUsuarioUseCase = criarOuAlterarUsuarioUseCase;
     }
 
-    public void execute(final String email, final String novaSenha) {
+    public void execute(final String idUsuario, final String novaSenha) {
         LOG.info("Inicio - Alterar senha");
 
-        final var usuario = buscarUsuarioUseCase.execute(email);
-        if (usuario == null || usuario.getEmail().isBlank())
-            throw new AlterarSenhaException("Nao existe um usuario cadastrado com este email");
+        final var usuario = buscarUsuarioUseCase.execute(idUsuario);
+        if (usuario == null || usuario.getIdUsuario().isBlank())
+            throw new AlterarSenhaException("Nao existe uma pessoa cadastrada com este usuario");
 
         usuario.setSenha(novaSenha);
 

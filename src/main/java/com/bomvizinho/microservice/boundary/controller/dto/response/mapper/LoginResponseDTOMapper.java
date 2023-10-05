@@ -19,13 +19,18 @@ public class LoginResponseDTOMapper {
                                 .withId(usuario.getId())
                                 .withNome(usuario.getNome())
                                 .withEmail(usuario.getEmail())
-                                .withDataNascimento(usuario.getDataNascimento())
-                                .withTelefone(usuario.getTelefone())
-                                .withDisponibilidade(usuario.getDisponibilidade())
-                                .withTipoPerfil(usuario.getTipoPerfil())
                                 .withEndereco(usuario.getEndereco())
+                                .withBairro(usuario.getBairro())
+                                .withCep(usuario.getCep())
+                                .withNumeroAp(usuario.getNumeroAp())
                                 .withBloco(usuario.getBloco())
-                                .withNumeroApartamento(usuario.getNumeroAp())
+                                .withCidade(usuario.getCidade())
+                                .withEstado(usuario.getEstado())
+                                .withComplemento(usuario.getComplemento())
+                                .withPerfil(usuario.getPerfil())
+                                .withUsuario(usuario.getIdUsuario())
+                                .withDisponibilidade(usuario.getDisponibilidade())
+                                .withSenha(usuario.getSenha())
                             .build())
                     .withVoluntarioResponseDTO(VoluntarioResponseDTO.Builder
                             .aVoluntarioResponseDTO()
@@ -40,19 +45,19 @@ public class LoginResponseDTOMapper {
                                 .withCondicaoSaude(idoso == null ? null : idoso.getCondicaoSaude())
                                 .withPreferenciaDia(idoso == null ? null : idoso.getPreferenciaDia())
                             .build())
-                    .withServicoResponseDTOList(servicoList
-                            .stream()
-                            .map(servico ->
-                                    ServicoResponseDTO.Builder
-                                            .aServicoResponseDTO()
-                                                .withId(servico.getId())
-                                                .withDataHoraFim(servico.getDataFim())
-                                                .withDataHoraInicio(servico.getDataInicio())
-                                                .withDestino(servico.getDestino())
-                                                .withStatus(servico.getStatus())
-                                                .withTipoServico(servico.getTipoServico())
-                                            .build()
-                            ).collect(Collectors.toList()))
+                    .withServicoResponseDTOList(servicoList == null ? null :
+                            servicoList.stream()
+                                .map(servico ->
+                                        ServicoResponseDTO.Builder
+                                                .aServicoResponseDTO()
+                                                    .withId(servico.getId())
+                                                    .withDataHoraFim(servico.getDataFim())
+                                                    .withDataHoraInicio(servico.getDataInicio())
+                                                    .withDestino(servico.getDestino())
+                                                    .withStatus(servico.getStatus())
+                                                    .withTipoServico(servico.getTipoServico())
+                                                .build()
+                                ).collect(Collectors.toList()))
                 .build();
     }
     

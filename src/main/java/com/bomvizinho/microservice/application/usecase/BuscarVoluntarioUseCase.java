@@ -21,21 +21,21 @@ public class BuscarVoluntarioUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public Voluntario execute(final String email) {
+    public Voluntario execute(final String idUsuario) {
         return retryTemplate
-                .execute(context -> buscarVoluntario(email),
+                .execute(context -> buscarVoluntario(idUsuario),
                          context -> failedToExecute());
     }
 
-    private Voluntario buscarVoluntario(String email) {
-        LOG.info("Inicio - Busca de voluntario por email");
+    private Voluntario buscarVoluntario(final String idUsuario) {
+        LOG.info("Inicio - Busca de voluntario por usuario");
 
-        final var voluntario = voluntarioRepository.findByUsuarioVoluntario_Email(email);
+        final var voluntario = voluntarioRepository.findByUsuarioVoluntario_IdUsuario(idUsuario);
         if (voluntario == null){
-            LOG.info("Fim - Busca de voluntario por email - Nao existe voluntario com o email informado");
+            LOG.info("Fim - Busca de voluntario por usuario - Nao existe voluntario com o usuario informado");
         }
 
-        LOG.info("Fim - Busca de voluntario por email");
+        LOG.info("Fim - Busca de voluntario por usuario");
 
         return voluntario;
     }

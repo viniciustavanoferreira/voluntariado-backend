@@ -26,7 +26,7 @@ public class Idoso implements Serializable {
     private String preferenciaDia;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario_idoso", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario_idoso", referencedColumnName = "id")
     private Usuario usuarioIdoso;
 
     @OneToMany(mappedBy = "idosoServico", cascade = CascadeType.ALL)
@@ -78,6 +78,63 @@ public class Idoso implements Serializable {
 
     public void setServicoIdoso(List<Servico> servicoIdoso) {
         this.servicoIdoso = servicoIdoso;
+    }
+
+    public static final class Builder {
+        private Long id;
+        private String condicaoSaude;
+        private String assistenciaRequerida;
+        private String preferenciaDia;
+        private Usuario usuarioIdoso;
+        private List<Servico> servicoIdoso;
+
+        private Builder() {
+        }
+
+        public static Builder anIdoso() {
+            return new Builder();
+        }
+
+        public Builder withId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withCondicaoSaude(String condicaoSaude) {
+            this.condicaoSaude = condicaoSaude;
+            return this;
+        }
+
+        public Builder withAssistenciaRequerida(String assistenciaRequerida) {
+            this.assistenciaRequerida = assistenciaRequerida;
+            return this;
+        }
+
+        public Builder withPreferenciaDia(String preferenciaDia) {
+            this.preferenciaDia = preferenciaDia;
+            return this;
+        }
+
+        public Builder withUsuarioIdoso(Usuario usuarioIdoso) {
+            this.usuarioIdoso = usuarioIdoso;
+            return this;
+        }
+
+        public Builder withServicoIdoso(List<Servico> servicoIdoso) {
+            this.servicoIdoso = servicoIdoso;
+            return this;
+        }
+
+        public Idoso build() {
+            Idoso idoso = new Idoso();
+            idoso.setId(id);
+            idoso.setCondicaoSaude(condicaoSaude);
+            idoso.setAssistenciaRequerida(assistenciaRequerida);
+            idoso.setPreferenciaDia(preferenciaDia);
+            idoso.setUsuarioIdoso(usuarioIdoso);
+            idoso.setServicoIdoso(servicoIdoso);
+            return idoso;
+        }
     }
 
 }

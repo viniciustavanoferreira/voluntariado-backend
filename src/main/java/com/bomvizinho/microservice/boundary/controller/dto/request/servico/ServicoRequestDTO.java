@@ -2,19 +2,19 @@ package com.bomvizinho.microservice.boundary.controller.dto.request.servico;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class ServicoDTO {
+public class ServicoRequestDTO {
 
     private String numero;
     private String tipoServico;
     private String dataInicio;
     private String dataFim;
 
-    public ServicoDTO() {
+    public ServicoRequestDTO() {
     }
 
     @JsonCreator
-    public ServicoDTO(String numero, String tipoServico,
-                      String dataInicio, String dataFim) {
+    public ServicoRequestDTO(String numero, String tipoServico,
+                             String dataInicio, String dataFim) {
         this.numero = numero;
         this.tipoServico = tipoServico;
         this.dataInicio = dataInicio;
@@ -86,13 +86,13 @@ public class ServicoDTO {
             return this;
         }
 
-        public ServicoDTO build() {
-            ServicoDTO servicoDTO = new ServicoDTO();
-            servicoDTO.setNumero(numero);
-            servicoDTO.setTipoServico(tipoServico);
-            servicoDTO.setDataInicio(dataInicio);
-            servicoDTO.setDataFim(dataFim);
-            return servicoDTO;
+        public ServicoRequestDTO build() {
+            ServicoRequestDTO servicoRequestDTO = new ServicoRequestDTO();
+            servicoRequestDTO.setNumero(numero);
+            servicoRequestDTO.setTipoServico(tipoServico);
+            servicoRequestDTO.setDataInicio(dataInicio);
+            servicoRequestDTO.setDataFim(dataFim);
+            return servicoRequestDTO;
         }
     }
 
