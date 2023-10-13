@@ -1,12 +1,7 @@
 package com.bomvizinho.microservice.application.usecase;
 
-import com.bomvizinho.microservice.application.exception.AlterarIdosoException;
-import com.bomvizinho.microservice.application.exception.AlterarVoluntarioException;
 import com.bomvizinho.microservice.application.exception.CriarServicoException;
-import com.bomvizinho.microservice.application.exception.LoginException;
-import com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO;
-import com.bomvizinho.microservice.boundary.controller.dto.request.mapper.IdosoRequestDTOMapper;
 import com.bomvizinho.microservice.boundary.controller.dto.request.mapper.ServicoRequestDTOMapper;
 import com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso;
 import org.slf4j.Logger;
@@ -36,7 +31,7 @@ public class CriarServicoUseCase {
     public void execute(final ServicoRequestDTO servicoRequestDTO) {
         LOG.info("Inicio - Criar servico");
 
-        final var usuario = buscarUsuarioUseCase.execute(servicoRequestDTO.getIdUsuarioIdoso());
+        final var usuario = buscarUsuarioUseCase.executeByUser(servicoRequestDTO.getIdUsuarioIdoso());
         if (usuario == null || usuario.getIdUsuario().isBlank())
             throw new CriarServicoException("Nao existe uma pessoa cadastrada com esse usuario");
 

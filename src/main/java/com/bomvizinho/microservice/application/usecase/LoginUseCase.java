@@ -34,7 +34,7 @@ public class LoginUseCase {
     public LoginResponseDTO execute(final String idUsuario, final String senha) {
         LOG.info("Inicio - Login");
 
-        final var usuario = buscarUsuarioUseCase.execute(idUsuario);
+        final var usuario = buscarUsuarioUseCase.executeByUser(idUsuario);
         if (usuario == null || usuario.getIdUsuario().isBlank())
             throw new LoginException("Nao existe uma pessoa cadastrada com esse usuario");
 

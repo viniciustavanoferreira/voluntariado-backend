@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class BuscarUsuarioUseCase {
 
@@ -21,7 +23,7 @@ public class BuscarUsuarioUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public Usuario execute(final String idUsuario) {
+    public Usuario executeByUser(final String idUsuario) {
         return retryTemplate
                     .execute(context -> buscarUsuario(idUsuario),
                              context -> failedToExecute());
@@ -43,6 +45,30 @@ public class BuscarUsuarioUseCase {
 
     private Usuario failedToExecute() {
         throw new BuscarUsuarioException("Tentativas esgotadas - Nao foi possivel buscar a pessoa no banco de dados");
+    }
+
+    public List<Usuario> executeByAll() {
+        return retryTemplate
+                .execute(context -> buscarTodosUsuarios(),
+                         context -> failedToExecuteByAll());
+    }
+
+    private List<Usuario> buscarTodosUsuarios() {
+        LOG.info("Inicio - Busca de pessoas por todos os usuarios");
+
+        final var usuarios = usuarioRepository.findAll();
+        if (usuarios.isEmpty()){
+            LOG.info("Fim - Busca de pessoas por todos os usuarios - Nao existem pessoas cadastradas");
+            return null;
+        }
+
+        LOG.info("Fim - Busca de pessoas por todos os usuarios");
+
+        return usuarios;
+    }
+
+    private List<Usuario> failedToExecuteByAll() {
+        throw new BuscarUsuarioException("Tentativas esgotadas - Nao foi possivel buscar as pessoas no banco de dados");
     }
 
 }

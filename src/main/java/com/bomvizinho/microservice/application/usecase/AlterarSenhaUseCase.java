@@ -22,7 +22,7 @@ public class AlterarSenhaUseCase {
     public void execute(final String idUsuario, final String novaSenha) {
         LOG.info("Inicio - Alterar senha");
 
-        final var usuario = buscarUsuarioUseCase.execute(idUsuario);
+        final var usuario = buscarUsuarioUseCase.executeByUser(idUsuario);
         if (usuario == null || usuario.getIdUsuario().isBlank())
             throw new AlterarSenhaException("Nao existe uma pessoa cadastrada com este usuario");
 
