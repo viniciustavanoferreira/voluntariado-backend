@@ -23,7 +23,7 @@ public class AlterarVoluntarioUseCase {
     public void execute(final VoluntarioRequestDTO voluntarioRequestDTO) {
         LOG.info("Inicio - Alterar usuario");
 
-        final var voluntario = buscarVoluntarioUseCase.execute(voluntarioRequestDTO.getUsuarioRequestDTO().getUsuario());
+        final var voluntario = buscarVoluntarioUseCase.executeByUser(voluntarioRequestDTO.getUsuarioRequestDTO().getUsuario());
         if (voluntario == null)
             throw new AlterarVoluntarioException("Nao existe um voluntario cadastrado com este usuario");
 

@@ -21,13 +21,13 @@ public class BuscarVoluntarioUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public Voluntario execute(final String idUsuario) {
+    public Voluntario executeByUser(final String idUsuario) {
         return retryTemplate
-                .execute(context -> buscarVoluntario(idUsuario),
+                .execute(context -> buscarVoluntarioPorUsuario(idUsuario),
                          context -> failedToExecute());
     }
 
-    private Voluntario buscarVoluntario(final String idUsuario) {
+    private Voluntario buscarVoluntarioPorUsuario(final String idUsuario) {
         LOG.info("Inicio - Busca de voluntario por usuario");
 
         final var voluntario = voluntarioRepository.findByUsuarioVoluntario_IdUsuario(idUsuario);
@@ -38,6 +38,26 @@ public class BuscarVoluntarioUseCase {
         LOG.info("Fim - Busca de voluntario por usuario");
 
         return voluntario;
+    }
+
+    public Voluntario executeById(final Long id) {
+        return retryTemplate
+                .execute(context -> buscarVoluntarioPorCodigo(id),
+                        context -> failedToExecute());
+    }
+
+    private Voluntario buscarVoluntarioPorCodigo(final Long id) {
+        LOG.info("Inicio - Busca de voluntario por codigo");
+
+        final var voluntario = voluntarioRepository.findById(id);
+        if (voluntario.isEmpty()){
+            LOG.info("Fim - Busca de voluntario por codigo - Nao existe voluntario com o codigo informado");
+            return null;
+        }
+
+        LOG.info("Fim - Busca de voluntario por codigo");
+
+        return voluntario.get();
     }
 
     private Voluntario failedToExecute() {

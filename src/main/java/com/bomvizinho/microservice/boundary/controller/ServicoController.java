@@ -1,7 +1,7 @@
 package com.bomvizinho.microservice.boundary.controller;
 
 import com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase;
-import com.bomvizinho.microservice.application.usecase.BuscarTodosServicosUseCase;
+import com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase;
 import com.bomvizinho.microservice.application.usecase.CriarServicoUseCase;
 import com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO;
@@ -21,16 +21,16 @@ public class ServicoController {
     private final DeletarServicoUseCase deletarServicoUseCase;
     private final CriarServicoUseCase criarServicoUseCase;
     private final AlterarServicoUseCase alterarServicoUseCase;
-    private final BuscarTodosServicosUseCase buscarTodosServicosUseCase;
+    private final BuscarTodosServicosElegiveisUseCase buscarTodosServicosElegiveisUseCase;
 
     public ServicoController(DeletarServicoUseCase deletarServicoUseCase,
                              CriarServicoUseCase criarServicoUseCase,
                              AlterarServicoUseCase alterarServicoUseCase,
-                             BuscarTodosServicosUseCase buscarTodosServicosUseCase) {
+                             BuscarTodosServicosElegiveisUseCase buscarTodosServicosElegiveisUseCase) {
         this.deletarServicoUseCase = deletarServicoUseCase;
         this.criarServicoUseCase = criarServicoUseCase;
         this.alterarServicoUseCase = alterarServicoUseCase;
-        this.buscarTodosServicosUseCase = buscarTodosServicosUseCase;
+        this.buscarTodosServicosElegiveisUseCase = buscarTodosServicosElegiveisUseCase;
     }
 
     @PostMapping
@@ -64,9 +64,9 @@ public class ServicoController {
     }
 
     @GetMapping
-    @Operation(summary = "Buscar todos os serviços cadastrados no sistema")
+    @Operation(summary = "Buscar todos os serviços elegíveis (que não possuem voluntários associados) cadastrados no sistema")
     public ResponseEntity<List<ServicoResponseDTO>> buscarTodosServicos() {
-        return ResponseEntity.ok(buscarTodosServicosUseCase.execute());
+        return ResponseEntity.ok(buscarTodosServicosElegiveisUseCase.execute());
     }
 
 }

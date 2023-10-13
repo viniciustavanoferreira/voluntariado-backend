@@ -24,7 +24,7 @@ public class AlterarIdosoUseCase {
     public void execute(final IdosoRequestDTO idosoRequestDTO) {
         LOG.info("Inicio - Alterar idoso");
 
-        final var idoso = buscarIdosoUseCase.execute(idosoRequestDTO.getUsuarioRequestDTO().getUsuario());
+        final var idoso = buscarIdosoUseCase.executeByUser(idosoRequestDTO.getUsuarioRequestDTO().getUsuario());
         if (idoso == null)
             throw new AlterarIdosoException("Nao existe um idoso cadastrado com este usuario");
 

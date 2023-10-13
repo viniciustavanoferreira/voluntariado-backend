@@ -37,7 +37,7 @@ public class CriarServicoUseCase {
 
         Idoso idoso = null;
         if (usuario.getPerfil().equals("IDOSO"))
-            idoso = buscarIdosoUseCase.execute(servicoRequestDTO.getIdUsuarioIdoso());
+            idoso = buscarIdosoUseCase.executeByUser(servicoRequestDTO.getIdUsuarioIdoso());
 
         if (idoso == null)
             throw new CriarServicoException("Nao existe um perfil idoso cadastrado para este usuario");

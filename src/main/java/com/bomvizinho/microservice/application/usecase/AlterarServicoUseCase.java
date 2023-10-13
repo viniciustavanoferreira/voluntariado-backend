@@ -33,7 +33,7 @@ public class AlterarServicoUseCase {
 
         Voluntario voluntario = null;
         if (servicoVoluntarioRequestDTO.getIdUsuarioVoluntario() != null) {
-            voluntario = buscarVoluntarioUseCase.execute(servicoVoluntarioRequestDTO.getIdUsuarioVoluntario());
+            voluntario = buscarVoluntarioUseCase.executeByUser(servicoVoluntarioRequestDTO.getIdUsuarioVoluntario());
             if (voluntario == null)
                 throw new AlterarServicoException("Nao existe um perfil voluntario cadastrado para este usuario");
         }

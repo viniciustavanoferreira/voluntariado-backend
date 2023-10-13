@@ -83,22 +83,22 @@ public class BuscarServicoUseCase {
         return servicos.stream().toList();
     }
 
-    public List<Servico> executeByAll(){
+    public List<Servico> executeByAllEligibles(){
         return retryTemplate
-                .execute(context -> buscarTodosServicos(),
+                .execute(context -> buscarTodosServicosElegiveis(),
                         context -> failedToExecute());
     }
 
-    private List<Servico> buscarTodosServicos() {
-        LOG.info("Inicio - Busca de todos os servicos");
+    private List<Servico> buscarTodosServicosElegiveis() {
+        LOG.info("Inicio - Busca de todos os servicos elegiveis para voluntarios");
 
-        final var servicos = servicoRepository.findAll();
+        final var servicos = servicoRepository.findByVoluntarioServicoIsNull();
         if (servicos.isEmpty()){
-            LOG.info("Fim - Busca de todos os servicos - Nao existem servicos cadastrados no sistema");
+            LOG.info("Fim - Busca de todos os servicos elegiveis para voluntarios - Nao existem servicos elegiveis para voluntarios cadastrados no sistema");
             return null;
         }
 
-        LOG.info("Fim - Busca de todos os servicos");
+        LOG.info("Fim - Busca de todos os servicos elegiveis para voluntarios");
 
         return servicos;
     }

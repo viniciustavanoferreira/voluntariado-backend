@@ -13,4 +13,6 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
 
     List<Servico> findByIdosoServicoId(Long id);
 
+    List<Servico> findByVoluntarioServicoIsNull();
+
 }

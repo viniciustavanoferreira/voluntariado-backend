@@ -44,9 +44,9 @@ public class LoginUseCase {
         Voluntario voluntario = null;
         Idoso idoso = null;
         if (usuario.getPerfil().equals("VOLUNTARIO"))
-            voluntario = buscarVoluntarioUseCase.execute(idUsuario);
+            voluntario = buscarVoluntarioUseCase.executeByUser(idUsuario);
         else if (usuario.getPerfil().equals("IDOSO"))
-            idoso = buscarIdosoUseCase.execute(idUsuario);
+            idoso = buscarIdosoUseCase.executeByUser(idUsuario);
 
         List<Servico> servico;
         if (voluntario != null)
