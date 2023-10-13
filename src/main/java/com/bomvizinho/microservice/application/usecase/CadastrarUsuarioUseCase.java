@@ -31,7 +31,7 @@ public class CadastrarUsuarioUseCase {
     public void execute(final UsuarioRequestDTO usuarioRequestDTO) {
         LOG.info("Inicio - Cadastrar usuario");
 
-        var usuario = buscarUsuarioUseCase.execute(usuarioRequestDTO.getUsuario());
+        var usuario = buscarUsuarioUseCase.executeByUser(usuarioRequestDTO.getUsuario());
         if (usuario != null && !usuario.getIdUsuario().isBlank())
             throw new CadastrarUsuarioException("Ja existe uma pessoa cadastrada com este usuario");
 

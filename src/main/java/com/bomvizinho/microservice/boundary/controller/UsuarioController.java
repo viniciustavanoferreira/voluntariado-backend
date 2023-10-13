@@ -7,9 +7,12 @@ import com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioReques
 import com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.login.LoginResponseDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.login.MessageResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.UsuarioResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/api/usuario")
@@ -21,19 +24,22 @@ public class UsuarioController {
     private final AlterarSenhaUseCase alterarSenhaUseCase;
     private final AlterarVoluntarioUseCase alterarVoluntarioUseCase;
     private final AlterarIdosoUseCase alterarIdosoUseCase;
+    private final BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase;
 
     public UsuarioController(CadastrarUsuarioUseCase cadastrarUsuarioUseCase,
                              EmailService emailService,
                              LoginUseCase loginUseCase,
                              AlterarSenhaUseCase alterarSenhaUseCase,
                              AlterarVoluntarioUseCase alterarVoluntarioUseCase,
-                             AlterarIdosoUseCase alterarIdosoUseCase) {
+                             AlterarIdosoUseCase alterarIdosoUseCase,
+                             BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase) {
         this.cadastrarUsuarioUseCase = cadastrarUsuarioUseCase;
         this.emailService = emailService;
         this.loginUseCase = loginUseCase;
         this.alterarSenhaUseCase = alterarSenhaUseCase;
         this.alterarVoluntarioUseCase = alterarVoluntarioUseCase;
         this.alterarIdosoUseCase = alterarIdosoUseCase;
+        this.buscarTodosUsuariosUseCase = buscarTodosUsuariosUseCase;
     }
 
     @PostMapping("login/id-usuario/{id-usuario}/senha/{senha}")
@@ -91,6 +97,12 @@ public class UsuarioController {
                 .aMessageDTO()
                     .withMessage("Senha alterada com sucesso!")
                 .build());
+    }
+
+    @GetMapping
+    @Operation(summary = "Buscar todos os usuários cadastrados no sistema")
+    public ResponseEntity<List<UsuarioResponseDTO>> buscarTodosUsuarios() {
+        return ResponseEntity.ok(buscarTodosUsuariosUseCase.execute());
     }
 
 }
