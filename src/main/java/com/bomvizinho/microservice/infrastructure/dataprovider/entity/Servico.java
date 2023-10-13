@@ -35,11 +35,11 @@ public class Servico implements Serializable {
     @Column(name = "status", length = 30)
     private String status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_idoso_servico", referencedColumnName = "id_idoso")
     private Idoso idosoServico;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_voluntario_servico", referencedColumnName = "id_voluntario")
     private Voluntario voluntarioServico;
 

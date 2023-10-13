@@ -10,24 +10,24 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class BuscarTodosServicosUseCase {
+public class BuscarTodosServicosElegiveisUseCase {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BuscarTodosServicosUseCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BuscarTodosServicosElegiveisUseCase.class);
     private final BuscarServicoUseCase buscarServicoUseCase;
 
 
-    public BuscarTodosServicosUseCase(BuscarServicoUseCase buscarServicoUseCase) {
+    public BuscarTodosServicosElegiveisUseCase(BuscarServicoUseCase buscarServicoUseCase) {
         this.buscarServicoUseCase = buscarServicoUseCase;
     }
 
     public List<ServicoResponseDTO> execute() {
-        LOG.info("Inicio - Buscar todos os servicos");
+        LOG.info("Inicio - Buscar todos os servicos elegiveis para voluntarios");
 
-        final var servicos = buscarServicoUseCase.executeByAll();
+        final var servicos = buscarServicoUseCase.executeByAllEligibles();
         if (servicos == null)
-            throw new BuscarServicoException("Nao existem servicos cadastrados no sistema");
+            throw new BuscarServicoException("Nao existem servicos elegiveis para voluntarios cadastrados no sistema");
 
-        LOG.info("Fim - Buscar todos os servicos");
+        LOG.info("Fim - Buscar todos os servicos elegiveis para voluntarios");
 
         return ServicoResponseDTOMapper.fromEntities(servicos);
     }
