@@ -83,6 +83,26 @@ public class BuscarServicoUseCase {
         return servicos.stream().toList();
     }
 
+    public List<Servico> executeByAll(){
+        return retryTemplate
+                .execute(context -> buscarTodosServicos(),
+                        context -> failedToExecute());
+    }
+
+    private List<Servico> buscarTodosServicos() {
+        LOG.info("Inicio - Busca de todos os servicos");
+
+        final var servicos = servicoRepository.findAll();
+        if (servicos.isEmpty()){
+            LOG.info("Fim - Busca de todos os servicos - Nao existem servicos cadastrados no sistema");
+            return null;
+        }
+
+        LOG.info("Fim - Busca de todos os servicos");
+
+        return servicos;
+    }
+
     private List<Servico> failedToExecute() {
         throw new BuscarServicoException("Tentativas esgotadas - Nao foi possivel buscar os servicos no banco de dados");
     }
