@@ -31,6 +31,9 @@ public class CadastrarUsuarioUseCase {
     public void execute(final UsuarioRequestDTO usuarioRequestDTO) {
         LOG.info("Inicio - Cadastrar usuario");
 
+        if(usuarioRequestDTO.getSenha() == null)
+            throw new CadastrarUsuarioException("Nao e possivel cadastrar um usuario sem senha");
+
         var usuario = buscarUsuarioUseCase.executeByUser(usuarioRequestDTO.getUsuario());
         if (usuario != null && !usuario.getIdUsuario().isBlank())
             throw new CadastrarUsuarioException("Ja existe uma pessoa cadastrada com este usuario");
