@@ -8,9 +8,13 @@ public class VoluntarioRequestDTOMapper {
     public static Voluntario toVoluntarioEntity(Voluntario voluntario, VoluntarioRequestDTO voluntarioRequestDTO) {
         voluntario.setHabilidade(voluntario.getHabilidade());
         voluntario.setPreferencia(voluntarioRequestDTO.getPreferencia());
+
+        final var usuarioAtualizado = UsuarioRequestDTOMapper
+                                              .toUsuarioEntity(voluntarioRequestDTO.getUsuarioRequestDTO());
+        usuarioAtualizado.setId(voluntario.getUsuarioVoluntario().getId());
         voluntario
-            .setUsuarioVoluntario(UsuarioRequestDTOMapper
-                    .toUsuarioEntity(voluntarioRequestDTO.getUsuarioRequestDTO()));
+            .setUsuarioVoluntario(usuarioAtualizado);
+
         return voluntario;
     }
 

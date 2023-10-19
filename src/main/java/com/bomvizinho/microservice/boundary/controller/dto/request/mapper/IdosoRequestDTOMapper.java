@@ -9,9 +9,13 @@ public class IdosoRequestDTOMapper {
         idoso.setAssistenciaRequerida(idosoRequestDTO.getAssistenciaRequerida());
         idoso.setCondicaoSaude(idosoRequestDTO.getCondicaoSaude());
         idoso.setPreferenciaDia(idosoRequestDTO.getPreferenciaDia());
+
+        final var usuarioAlterado = UsuarioRequestDTOMapper
+                                            .toUsuarioEntity(idosoRequestDTO.getUsuarioRequestDTO());
+        usuarioAlterado.setId(idoso.getUsuarioIdoso().getId());
         idoso
-            .setUsuarioIdoso(UsuarioRequestDTOMapper
-                    .toUsuarioEntity(idosoRequestDTO.getUsuarioRequestDTO()));
+            .setUsuarioIdoso(usuarioAlterado);
+
         return idoso;
     }
 
