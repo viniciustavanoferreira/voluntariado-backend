@@ -28,6 +28,9 @@ title __ENTITY's Class Diagram__\n
   }
   
 
+
+  
+
   namespace com.bomvizinho.microservice {
     namespace infrastructure.dataprovider.entity {
       class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico {
@@ -38,6 +41,7 @@ title __ENTITY's Class Diagram__\n
           - ordem : String
           {static} - serialVersionUID : long
           - status : String
+          - tipoServico : String
           + getDataFim()
           + getDataInicio()
           + getDestino()
@@ -45,6 +49,7 @@ title __ENTITY's Class Diagram__\n
           + getIdosoServico()
           + getOrdem()
           + getStatus()
+          + getTipoServico()
           + getVoluntarioServico()
           + setDataFim()
           + setDataInicio()
@@ -53,52 +58,75 @@ title __ENTITY's Class Diagram__\n
           + setIdosoServico()
           + setOrdem()
           + setStatus()
+          + setTipoServico()
           + setVoluntarioServico()
       }
     }
   }
   
 
+  
+
   namespace com.bomvizinho.microservice {
     namespace infrastructure.dataprovider.entity {
       class com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario {
+          - bairro : String
           - bloco : String
+          - cep : String
+          - cidade : String
+          - complemento : String
           - dataNascimento : Date
           - disponibilidade : String
           - email : String
           - endereco : String
+          - estado : String
           - id : Long
+          - idUsuario : String
           - nome : String
           - numeroAp : String
+          - perfil : String
           - senha : String
           {static} - serialVersionUID : long
           - telefone : String
-          - tipoPerfil : String
+          + getBairro()
           + getBloco()
+          + getCep()
+          + getCidade()
+          + getComplemento()
           + getDataNascimento()
           + getDisponibilidade()
           + getEmail()
           + getEndereco()
+          + getEstado()
           + getId()
+          + getIdUsuario()
           + getNome()
           + getNumeroAp()
+          + getPerfil()
           + getSenha()
           + getTelefone()
-          + getTipoPerfil()
+          + setBairro()
           + setBloco()
+          + setCep()
+          + setCidade()
+          + setComplemento()
           + setDataNascimento()
           + setDisponibilidade()
           + setEmail()
           + setEndereco()
+          + setEstado()
           + setId()
+          + setIdUsuario()
           + setNome()
           + setNumeroAp()
+          + setPerfil()
           + setSenha()
           + setTelefone()
-          + setTipoPerfil()
       }
     }
   }
+  
+
   
 
   namespace com.bomvizinho.microservice {
@@ -124,14 +152,24 @@ title __ENTITY's Class Diagram__\n
   }
   
 
+  
+
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioIdoso
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso +-down- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso.Builder
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso.Builder o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioIdoso
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso : idosoServico
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario : voluntarioServico
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico +-down- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico.Builder
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico.Builder o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso : idosoServico
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico.Builder o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario : voluntarioServico
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario .up.|> java.io.Serializable
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario +-down- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario.Builder
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioVoluntario
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario +-down- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario.Builder
+  com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario.Builder o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioVoluntario
 
 
 right footer

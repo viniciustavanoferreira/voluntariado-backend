@@ -9,6 +9,142 @@ title __MICROSERVICE's Class Diagram__\n
   
 
   namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.AlterarIdosoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.AlterarSenhaException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.AlterarServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.AlterarVoluntarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.BuscarIdosoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.BuscarServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.BuscarUsuarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.BuscarVoluntarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CadastrarUsuarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CriarOuAlterarIdosoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CriarOuAlterarServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CriarOuAlterarUsuarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CriarOuAlterarVoluntarioException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.CriarServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.DeletarServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.LoginException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.exception {
+      class com.bomvizinho.microservice.application.exception.ManterServicoException {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
     namespace application.service {
       class com.bomvizinho.microservice.application.service.EmailService {
       }
@@ -19,6 +155,158 @@ title __MICROSERVICE's Class Diagram__\n
   namespace com.bomvizinho.microservice {
     namespace application.service {
       class com.bomvizinho.microservice.application.service.UsuarioService {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarServicoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.LoginUseCase {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.ManterServicoUseCase {
       }
     }
   }
@@ -42,8 +330,8 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.login {
-        class com.bomvizinho.microservice.boundary.controller.dto.login.UsuarioDTO {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO {
         }
       }
     }
@@ -52,8 +340,8 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        class com.bomvizinho.microservice.boundary.controller.dto.servico.ServicoDTO {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO {
         }
       }
     }
@@ -62,9 +350,39 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace idoso {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.IdosoDTO {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace mapper {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.mapper.IdosoRequestDTOMapper {
           }
         }
       }
@@ -74,9 +392,9 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace idoso {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO {
+      namespace dto.request {
+        namespace mapper {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.mapper.ServicoRequestDTOMapper {
           }
         }
       }
@@ -86,9 +404,9 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace idoso {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO {
+      namespace dto.request {
+        namespace mapper {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.mapper.ServicoVoluntarioRequestDTOMapper {
           }
         }
       }
@@ -98,10 +416,180 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace voluntario {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO {
+      namespace dto.request {
+        namespace mapper {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.mapper.UsuarioRequestDTOMapper {
           }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace mapper {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.mapper.VoluntarioRequestDTOMapper {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace servico {
+          class com.bomvizinho.microservice.boundary.controller.dto.request.servico.ServicoRequestDTO {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace servico {
+          namespace idoso.idoso {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.IdosoRequestDTO {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace servico {
+          namespace idoso.idoso {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.ServicoIdosoRequestDTO {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace servico {
+          namespace idoso.idoso {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.VoluntarioServicoRequestDTO {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        namespace servico {
+          namespace voluntario.voluntario {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioRequestDTO {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.IdosoResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.LoginResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.MessageResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.UsuarioResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.login {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.login.VoluntarioResponseDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.mapper {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.mapper.LoginResponseDTOMapper {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.mapper {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.mapper.ServicoResponseDTOMapper {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.response.mapper {
+        class com.bomvizinho.microservice.boundary.controller.dto.response.mapper.UsuarioResponseDTOMapper {
         }
       }
     }
@@ -111,6 +599,14 @@ title __MICROSERVICE's Class Diagram__\n
   namespace com.bomvizinho.microservice {
     namespace infrastructure.config {
       class com.bomvizinho.microservice.infrastructure.config.CorsConfig {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.config {
+      class com.bomvizinho.microservice.infrastructure.config.RetryConfig {
       }
     }
   }
@@ -150,16 +646,100 @@ title __MICROSERVICE's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
       interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository {
       }
     }
   }
   
 
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository {
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.exception {
+      class com.bomvizinho.microservice.infrastructure.exception.SistemaVoluntariadoExceptionHandler {
+      }
+    }
+  }
+  
+
   com.bomvizinho.microservice.application.service.UsuarioService o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase : criarOuAlterarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase : criarOuAlterarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository : idosoRepository
+  com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+  com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository : voluntarioRepository
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase : criarOuAlterarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository : idosoRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository : voluntarioRepository
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase : criarOuAlterarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.ManterServicoUseCase : manterServicoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.ManterServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase : alterarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase : buscarTodosServicosElegiveisUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.CriarServicoUseCase : criarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase : deletarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase : alterarIdosoUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase : alterarSenhaUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase : alterarVoluntarioUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase : buscarTodosUsuariosUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase : cadastrarUsuarioUseCase
   com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.EmailService : emailService
-  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.UsuarioService : usuarioService
-  com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.ServicoIdosoDTO o-- com.bomvizinho.microservice.boundary.controller.dto.servico.idoso.VoluntarioServicoDTO : voluntarioServicoDTO
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.LoginUseCase : loginUseCase
+  com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.ServicoIdosoRequestDTO o-- com.bomvizinho.microservice.boundary.controller.dto.request.servico.idoso.idoso.VoluntarioServicoRequestDTO : voluntarioServicoRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.response.login.LoginResponseDTO o-- com.bomvizinho.microservice.boundary.controller.dto.response.login.IdosoResponseDTO : idosoResponseDTO
+  com.bomvizinho.microservice.boundary.controller.dto.response.login.LoginResponseDTO o-- com.bomvizinho.microservice.boundary.controller.dto.response.login.UsuarioResponseDTO : usuarioResponseDTO
+  com.bomvizinho.microservice.boundary.controller.dto.response.login.LoginResponseDTO o-- com.bomvizinho.microservice.boundary.controller.dto.response.login.VoluntarioResponseDTO : voluntarioResponseDTO
   com.bomvizinho.microservice.infrastructure.config.CorsConfig .up.|> org.springframework.web.servlet.config.annotation.WebMvcConfigurer
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioIdoso
@@ -169,6 +749,7 @@ title __MICROSERVICE's Class Diagram__\n
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario .up.|> java.io.Serializable
   com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario o-- com.bomvizinho.microservice.infrastructure.dataprovider.entity.Usuario : usuarioVoluntario
+  com.bomvizinho.microservice.infrastructure.exception.SistemaVoluntariadoExceptionHandler -up-|> org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
 
 
 right footer

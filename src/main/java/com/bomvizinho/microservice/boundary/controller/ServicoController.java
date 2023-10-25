@@ -35,12 +35,8 @@ public class ServicoController {
 
     @PostMapping
     @Operation(summary = "Criar serviço")
-    public ResponseEntity<MessageResponseDTO> criarServico(@RequestBody ServicoRequestDTO servicoRequestDTO) {
-        criarServicoUseCase.execute(servicoRequestDTO);
-        return ResponseEntity.ok(MessageResponseDTO.Builder
-                .aMessageDTO()
-                    .withMessage("Servico criado com sucesso!")
-                .build());
+    public ResponseEntity<ServicoResponseDTO> criarServico(@RequestBody ServicoRequestDTO servicoRequestDTO) {
+        return ResponseEntity.ok(criarServicoUseCase.execute(servicoRequestDTO));
     }
 
     @DeleteMapping("/codigo-servico/{codigo-servico}")
@@ -55,12 +51,8 @@ public class ServicoController {
 
     @PutMapping
     @Operation(summary = "Atualizar serviço (dados serviço ou vincular voluntário)")
-    public ResponseEntity<MessageResponseDTO> atualizarServico(@RequestBody ServicoVoluntarioRequestDTO servicoVoluntarioRequestDTO) {
-        alterarServicoUseCase.execute(servicoVoluntarioRequestDTO);
-        return ResponseEntity.ok(MessageResponseDTO.Builder
-                .aMessageDTO()
-                    .withMessage("Servico alterado com sucesso!")
-                .build());
+    public ResponseEntity<ServicoResponseDTO> atualizarServico(@RequestBody ServicoVoluntarioRequestDTO servicoVoluntarioRequestDTO) {
+        return ResponseEntity.ok(alterarServicoUseCase.execute(servicoVoluntarioRequestDTO));
     }
 
     @GetMapping

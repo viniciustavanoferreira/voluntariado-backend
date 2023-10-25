@@ -12,6 +12,15 @@ title __CONFIG's Class Diagram__\n
   }
   
 
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.config {
+      class com.bomvizinho.microservice.infrastructure.config.RetryConfig {
+          + retryTemplate()
+      }
+    }
+  }
+  
+
   com.bomvizinho.microservice.infrastructure.config.CorsConfig .up.|> org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 

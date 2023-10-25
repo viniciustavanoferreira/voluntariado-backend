@@ -86,7 +86,7 @@ public class BuscarServicoUseCase {
     public List<Servico> executeByAllEligibles(){
         return retryTemplate
                 .execute(context -> buscarTodosServicosElegiveis(),
-                        context -> failedToExecute());
+                         context -> failedToExecute());
     }
 
     private List<Servico> buscarTodosServicosElegiveis() {

@@ -5,9 +5,10 @@ title __CONTROLLER's Class Diagram__\n
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
       class com.bomvizinho.microservice.boundary.controller.ServicoController {
+          + ServicoController()
           + atualizarServico()
-          + buscarServicoIdoso()
-          + buscarServicoVoluntario()
+          + buscarTodosServicos()
+          + criarServico()
           + deletarServico()
       }
     }
@@ -18,16 +19,11 @@ title __CONTROLLER's Class Diagram__\n
     namespace boundary.controller {
       class com.bomvizinho.microservice.boundary.controller.UsuarioController {
           + UsuarioController()
+          + alterarIdoso()
           + alterarSenha()
-          + atualizarIdoso()
-          + atualizarVoluntario()
-          + buscarIdoso()
-          + buscarVoluntario()
-          + cadastrarIdoso()
+          + alterarVoluntario()
+          + buscarTodosUsuarios()
           + cadastrarUsuario()
-          + cadastrarVoluntario()
-          + deletarIdoso()
-          + deletarVoluntario()
           + login()
           + redefinirSenha()
       }
@@ -35,8 +31,17 @@ title __CONTROLLER's Class Diagram__\n
   }
   
 
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase : alterarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase : buscarTodosServicosElegiveisUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.CriarServicoUseCase : criarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.ServicoController o-- com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase : deletarServicoUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase : alterarIdosoUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase : alterarSenhaUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase : alterarVoluntarioUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase : buscarTodosUsuariosUseCase
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase : cadastrarUsuarioUseCase
   com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.EmailService : emailService
-  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.service.UsuarioService : usuarioService
+  com.bomvizinho.microservice.boundary.controller.UsuarioController o-- com.bomvizinho.microservice.application.usecase.LoginUseCase : loginUseCase
 
 
 right footer

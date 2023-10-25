@@ -21,29 +21,24 @@ public class CriarOuAlterarServicoUseCase {
         this.retryTemplate = retryTemplate;
     }
 
-    public void execute(final Servico servico) {
-        final var failedToExecute = retryTemplate
-                    .execute(context -> criarOuAlterarServico(servico),
-                             context -> failedToExecute());
-
-        if (failedToExecute)
-            throw new CriarOuAlterarServicoException("Falha ao tentar criar ou alterar servico");
+    public Servico execute(final Servico servico) {
+        return retryTemplate
+                .execute(context -> criarOuAlterarServico(servico),
+                         context -> failedToExecute());
     }
 
-    private boolean criarOuAlterarServico(final Servico servico) {
+    private Servico criarOuAlterarServico(final Servico servico) {
         LOG.info("Inicio - Criar ou alterar servico");
 
-        servicoRepository.save(servico);
+        final var servicoBase = servicoRepository.save(servico);
 
         LOG.info("Fim - Criar ou alterar servico - Sucesso nesta operacao com o banco de dados");
 
-        return false;
+        return servicoBase;
     }
 
-    private boolean failedToExecute() {
-        LOG.error("Tentativas esgotadas - Nao foi possivel criar ou alterar o servico no banco de dados");
-
-        return true;
+    private Servico failedToExecute() {
+        throw new CriarOuAlterarServicoException("Tentativas esgotadas - Nao foi possivel criar ou alterar o servico no banco de dados");
     }
 
 }
