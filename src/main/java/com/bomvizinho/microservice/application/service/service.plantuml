@@ -6,6 +6,7 @@ title __SERVICE's Class Diagram__\n
     namespace application.service {
       class com.bomvizinho.microservice.application.service.EmailService {
           - mailSender : JavaMailSender
+          - urlSistemaAlterarSenha : String
           + EmailService()
           + sendEmail()
       }

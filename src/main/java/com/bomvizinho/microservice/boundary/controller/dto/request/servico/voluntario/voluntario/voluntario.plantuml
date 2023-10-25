@@ -4,38 +4,40 @@ title __VOLUNTARIO's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace voluntario {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO {
-              - cep : String
-              - dataNascimento : String
-              - email : String
-              - endereco : String
-              - nome : String
-              - senha : String
-              - sobrenome : String
-              - telefone : String
-              - usuario : String
-              + VoluntarioDTO()
-              + VoluntarioDTO()
-              + getCep()
-              + getDataNascimento()
-              + getEmail()
-              + getEndereco()
-              + getNome()
-              + getSenha()
-              + getSobrenome()
-              + getTelefone()
-              + getUsuario()
-              + setCep()
-              + setDataNascimento()
-              + setEmail()
-              + setEndereco()
-              + setNome()
-              + setSenha()
-              + setSobrenome()
-              + setTelefone()
-              + setUsuario()
+      namespace dto.request {
+        namespace servico {
+          namespace voluntario.voluntario {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioRequestDTO {
+                - cep : String
+                - dataNascimento : String
+                - email : String
+                - endereco : String
+                - nome : String
+                - senha : String
+                - sobrenome : String
+                - telefone : String
+                - usuario : String
+                + VoluntarioRequestDTO()
+                + VoluntarioRequestDTO()
+                + getCep()
+                + getDataNascimento()
+                + getEmail()
+                + getEndereco()
+                + getNome()
+                + getSenha()
+                + getSobrenome()
+                + getTelefone()
+                + getUsuario()
+                + setCep()
+                + setDataNascimento()
+                + setEmail()
+                + setEndereco()
+                + setNome()
+                + setSenha()
+                + setSobrenome()
+                + setTelefone()
+                + setUsuario()
+            }
           }
         }
       }
@@ -45,30 +47,32 @@ title __VOLUNTARIO's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace boundary.controller {
-      namespace dto.servico {
-        namespace voluntario {
-          class com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO.Builder {
-              - cep : String
-              - dataNascimento : String
-              - email : String
-              - endereco : String
-              - nome : String
-              - senha : String
-              - sobrenome : String
-              - telefone : String
-              - usuario : String
-              {static} + aVoluntarioDTO()
-              + build()
-              + withCep()
-              + withDataNascimento()
-              + withEmail()
-              + withEndereco()
-              + withNome()
-              + withSenha()
-              + withSobrenome()
-              + withTelefone()
-              + withUsuario()
-              - Builder()
+      namespace dto.request {
+        namespace servico {
+          namespace voluntario.voluntario {
+            class com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioRequestDTO.Builder {
+                - cep : String
+                - dataNascimento : String
+                - email : String
+                - endereco : String
+                - nome : String
+                - senha : String
+                - sobrenome : String
+                - telefone : String
+                - usuario : String
+                {static} + aVoluntarioDTO()
+                + build()
+                + withCep()
+                + withDataNascimento()
+                + withEmail()
+                + withEndereco()
+                + withNome()
+                + withSenha()
+                + withSobrenome()
+                + withTelefone()
+                + withUsuario()
+                - Builder()
+            }
           }
         }
       }
@@ -76,7 +80,7 @@ title __VOLUNTARIO's Class Diagram__\n
   }
   
 
-  com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.servico.voluntario.VoluntarioDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.servico.voluntario.voluntario.VoluntarioRequestDTO.Builder
 
 
 right footer

@@ -4,7 +4,37 @@ title __REPOSITORY's Class Diagram__\n
 
   namespace com.bomvizinho.microservice {
     namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository {
+          {abstract} + findByUsuarioIdoso_IdUsuario()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository {
+          {abstract} + findByIdosoServicoId()
+          {abstract} + findByVoluntarioServicoId()
+          {abstract} + findByVoluntarioServicoIsNull()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
       interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository {
+          {abstract} + findByIdUsuario()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace infrastructure.dataprovider.repository {
+      interface com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository {
+          {abstract} + findByUsuarioVoluntario_IdUsuario()
       }
     }
   }

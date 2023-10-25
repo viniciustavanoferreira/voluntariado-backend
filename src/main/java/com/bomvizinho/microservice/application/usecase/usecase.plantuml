@@ -1,0 +1,301 @@
+@startuml
+
+title __USECASE's Class Diagram__\n
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase {
+          {static} - LOG : Logger
+          + AlterarIdosoUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase {
+          {static} - LOG : Logger
+          + AlterarSenhaUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase {
+          {static} - LOG : Logger
+          + AlterarServicoUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase {
+          {static} - LOG : Logger
+          + AlterarVoluntarioUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + BuscarIdosoUseCase()
+          + executeById()
+          + executeByUser()
+          - buscarIdosoPorCodigo()
+          - buscarIdosoPorUsuario()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + BuscarServicoUseCase()
+          + executeByAllEligibles()
+          + executeById()
+          + executeByIdoso()
+          + executeByVoluntario()
+          - buscarServicoCodigo()
+          - buscarServicoIdoso()
+          - buscarServicoVoluntario()
+          - buscarTodosServicosElegiveis()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase {
+          {static} - LOG : Logger
+          + BuscarTodosServicosElegiveisUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase {
+          {static} - LOG : Logger
+          + BuscarTodosUsuariosUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + BuscarUsuarioUseCase()
+          + executeByAll()
+          + executeByUser()
+          - buscarTodosUsuarios()
+          - buscarUsuario()
+          - failedToExecute()
+          - failedToExecuteByAll()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + BuscarVoluntarioUseCase()
+          + executeById()
+          + executeByUser()
+          - buscarVoluntarioPorCodigo()
+          - buscarVoluntarioPorUsuario()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase {
+          {static} - LOG : Logger
+          + CadastrarUsuarioUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + CriarOuAlterarIdosoUseCase()
+          + execute()
+          - criarOuAlterarIdoso()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + CriarOuAlterarServicoUseCase()
+          + execute()
+          - criarOuAlterarServico()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + CriarOuAlterarUsuarioUseCase()
+          + execute()
+          - criarOuAlterarUsuario()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + CriarOuAlterarVoluntarioUseCase()
+          + execute()
+          - criarOuAlterarVoluntario()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.CriarServicoUseCase {
+          {static} - LOG : Logger
+          + CriarServicoUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase {
+          {static} - LOG : Logger
+          + DeletarServicoUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.LoginUseCase {
+          {static} - LOG : Logger
+          + LoginUseCase()
+          + execute()
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace application.usecase {
+      class com.bomvizinho.microservice.application.usecase.ManterServicoUseCase {
+          {static} - LOG : Logger
+          - retryTemplate : RetryTemplate
+          + ManterServicoUseCase()
+          + executeDelete()
+          - deletarServico()
+          - failedToExecute()
+      }
+    }
+  }
+  
+
+  com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarIdosoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarSenhaUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase : criarOuAlterarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase : criarOuAlterarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.AlterarVoluntarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository : idosoRepository
+  com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+  com.bomvizinho.microservice.application.usecase.BuscarTodosServicosElegiveisUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarTodosUsuariosUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository : voluntarioRepository
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase : criarOuAlterarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CadastrarUsuarioUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.IdosoRepository : idosoRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarUsuarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.UsuarioRepository : usuarioRepository
+  com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.VoluntarioRepository : voluntarioRepository
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.CriarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarServicoUseCase : criarOuAlterarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarIdosoUseCase : criarOuAlterarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.CriarOuAlterarVoluntarioUseCase : criarOuAlterarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase o-- com.bomvizinho.microservice.application.usecase.ManterServicoUseCase : manterServicoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarIdosoUseCase : buscarIdosoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarServicoUseCase : buscarServicoUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarUsuarioUseCase : buscarUsuarioUseCase
+  com.bomvizinho.microservice.application.usecase.LoginUseCase o-- com.bomvizinho.microservice.application.usecase.BuscarVoluntarioUseCase : buscarVoluntarioUseCase
+  com.bomvizinho.microservice.application.usecase.ManterServicoUseCase o-- com.bomvizinho.microservice.infrastructure.dataprovider.repository.ServicoRepository : servicoRepository
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

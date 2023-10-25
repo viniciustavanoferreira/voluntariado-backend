@@ -12,16 +12,29 @@ public class ServicoResponseDTOMapper {
         return servicoList.stream()
                 .map(servico ->
                     ServicoResponseDTO.Builder
-                    .aServicoResponseDTO()
-                            .withId(servico.getId())
-                            .withOrdem(servico.getOrdem())
-                            .withTipoServico(servico.getTipoServico())
-                            .withStatus(servico.getStatus())
-                            .withDestino(servico.getDestino())
-                            .withDataHoraInicio(servico.getDataInicio())
-                            .withDataHoraFim(servico.getDataFim())
-                    .build()
+                        .aServicoResponseDTO()
+                                .withId(servico.getId())
+                                .withOrdem(servico.getOrdem())
+                                .withTipoServico(servico.getTipoServico())
+                                .withStatus(servico.getStatus())
+                                .withDestino(servico.getDestino())
+                                .withDataHoraInicio(servico.getDataInicio())
+                                .withDataHoraFim(servico.getDataFim())
+                        .build()
                 ).collect(Collectors.toList());
+    }
+
+    public static ServicoResponseDTO fromEntity(Servico servico) {
+        return ServicoResponseDTO.Builder
+                    .aServicoResponseDTO()
+                        .withId(servico.getId())
+                        .withOrdem(servico.getOrdem())
+                        .withTipoServico(servico.getTipoServico())
+                        .withStatus(servico.getStatus())
+                        .withDestino(servico.getDestino())
+                        .withDataHoraInicio(servico.getDataInicio())
+                        .withDataHoraFim(servico.getDataFim())
+                    .build();
     }
 
 }

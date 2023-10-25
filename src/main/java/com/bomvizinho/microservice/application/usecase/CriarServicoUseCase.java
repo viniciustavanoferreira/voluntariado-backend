@@ -3,6 +3,8 @@ package com.bomvizinho.microservice.application.usecase;
 import com.bomvizinho.microservice.application.exception.CriarServicoException;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.request.mapper.ServicoRequestDTOMapper;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.mapper.ServicoResponseDTOMapper;
 import com.bomvizinho.microservice.infrastructure.dataprovider.entity.Idoso;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +30,7 @@ public class CriarServicoUseCase {
         this.buscarIdosoUseCase = buscarIdosoUseCase;
     }
 
-    public void execute(final ServicoRequestDTO servicoRequestDTO) {
+    public ServicoResponseDTO execute(final ServicoRequestDTO servicoRequestDTO) {
         LOG.info("Inicio - Criar servico");
 
         final var usuario = buscarUsuarioUseCase.executeByUser(servicoRequestDTO.getIdUsuarioIdoso());
@@ -42,11 +44,12 @@ public class CriarServicoUseCase {
         if (idoso == null)
             throw new CriarServicoException("Nao existe um perfil idoso cadastrado para este usuario");
 
-        criarOuAlterarServicoUseCase
-                .execute(ServicoRequestDTOMapper
-                            .toServicoEntity(idoso, servicoRequestDTO));
-
         LOG.info("Fim - Criar servico");
+
+        return ServicoResponseDTOMapper
+                .fromEntity(criarOuAlterarServicoUseCase
+                        .execute(ServicoRequestDTOMapper
+                            .toServicoEntity(idoso, servicoRequestDTO)));
     }
 
 }

@@ -1,0 +1,330 @@
+@startuml
+
+title __REQUEST's Class Diagram__\n
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO {
+            - assistenciaRequerida : String
+            - condicaoSaude : String
+            - preferenciaDia : String
+            + IdosoRequestDTO()
+            + getAssistenciaRequerida()
+            + getCondicaoSaude()
+            + getPreferenciaDia()
+            + getUsuarioRequestDTO()
+            + setAssistenciaRequerida()
+            + setCondicaoSaude()
+            + setPreferenciaDia()
+            + setUsuarioRequestDTO()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO.Builder {
+            - assistenciaRequerida : String
+            - condicaoSaude : String
+            - preferenciaDia : String
+            {static} + anIdosoRequestDTO()
+            + build()
+            + withAssistenciaRequerida()
+            + withCondicaoSaude()
+            + withPreferenciaDia()
+            + withUsuarioRequestDTO()
+            - Builder()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO {
+            - dataFim : Timestamp
+            - dataInicio : Timestamp
+            - destino : String
+            - idUsuarioIdoso : String
+            - ordem : String
+            - status : String
+            - tipoServico : String
+            + ServicoRequestDTO()
+            + getDataFim()
+            + getDataInicio()
+            + getDestino()
+            + getIdUsuarioIdoso()
+            + getOrdem()
+            + getStatus()
+            + getTipoServico()
+            + setDataFim()
+            + setDataInicio()
+            + setDestino()
+            + setIdUsuarioIdoso()
+            + setOrdem()
+            + setStatus()
+            + setTipoServico()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO.Builder {
+            - dataFim : Timestamp
+            - dataInicio : Timestamp
+            - destino : String
+            - idUsuarioIdoso : String
+            - ordem : String
+            - status : String
+            - tipoServico : String
+            {static} + aServicoRequestDTO()
+            + build()
+            + withDataFim()
+            + withDataInicio()
+            + withDestino()
+            + withIdUsuarioIdoso()
+            + withOrdem()
+            + withStatus()
+            + withTipoServico()
+            - Builder()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO {
+            - codigoServico : Long
+            - dataFim : Timestamp
+            - dataInicio : Timestamp
+            - destino : String
+            - idUsuarioVoluntario : String
+            - ordem : String
+            - status : String
+            - tipoServico : String
+            + ServicoVoluntarioRequestDTO()
+            + getCodigoServico()
+            + getDataFim()
+            + getDataInicio()
+            + getDestino()
+            + getIdUsuarioVoluntario()
+            + getOrdem()
+            + getStatus()
+            + getTipoServico()
+            + setCodigoServico()
+            + setDataFim()
+            + setDataInicio()
+            + setDestino()
+            + setIdUsuarioVoluntario()
+            + setOrdem()
+            + setStatus()
+            + setTipoServico()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO.Builder {
+            - codigoServico : Long
+            - dataFim : Timestamp
+            - dataInicio : Timestamp
+            - destino : String
+            - idUsuarioVoluntario : String
+            - ordem : String
+            - status : String
+            - tipoServico : String
+            {static} + aServicoVoluntarioRequestDTO()
+            + build()
+            + withCodigoServico()
+            + withDataFim()
+            + withDataInicio()
+            + withDestino()
+            + withIdUsuarioVoluntario()
+            + withOrdem()
+            + withStatus()
+            + withTipoServico()
+            - Builder()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO {
+            - bairro : String
+            - bloco : String
+            - cep : String
+            - cidade : String
+            - complemento : String
+            - dataNascimento : Date
+            - disponibilidade : String
+            - email : String
+            - endereco : String
+            - estado : String
+            - nome : String
+            - numeroAp : String
+            - perfil : String
+            - senha : String
+            - telefone : String
+            - usuario : String
+            + UsuarioRequestDTO()
+            + UsuarioRequestDTO()
+            + getBairro()
+            + getBloco()
+            + getCep()
+            + getCidade()
+            + getComplemento()
+            + getDataNascimento()
+            + getDisponibilidade()
+            + getEmail()
+            + getEndereco()
+            + getEstado()
+            + getNome()
+            + getNumeroAp()
+            + getPerfil()
+            + getSenha()
+            + getTelefone()
+            + getUsuario()
+            + setBairro()
+            + setBloco()
+            + setCep()
+            + setCidade()
+            + setComplemento()
+            + setDataNascimento()
+            + setDisponibilidade()
+            + setEmail()
+            + setEndereco()
+            + setEstado()
+            + setNome()
+            + setNumeroAp()
+            + setPerfil()
+            + setSenha()
+            + setTelefone()
+            + setUsuario()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO.Builder {
+            - bairro : String
+            - bloco : String
+            - cep : String
+            - cidade : String
+            - complemento : String
+            - dataNascimento : Date
+            - disponibilidade : String
+            - email : String
+            - endereco : String
+            - estado : String
+            - nome : String
+            - numeroAp : String
+            - perfil : String
+            - senha : String
+            - telefone : String
+            - usuario : String
+            {static} + anUsuarioRequestDTO()
+            + build()
+            + withBairro()
+            + withBloco()
+            + withCep()
+            + withCidade()
+            + withComplemento()
+            + withDataNascimento()
+            + withDisponibilidade()
+            + withEmail()
+            + withEndereco()
+            + withEstado()
+            + withNome()
+            + withNumeroAp()
+            + withPerfil()
+            + withSenha()
+            + withTelefone()
+            + withUsuario()
+            - Builder()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO {
+            - habilidade : String
+            - preferencia : String
+            + VoluntarioRequestDTO()
+            + getHabilidade()
+            + getPreferencia()
+            + getUsuarioRequestDTO()
+            + setHabilidade()
+            + setPreferencia()
+            + setUsuarioRequestDTO()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.bomvizinho.microservice {
+    namespace boundary.controller {
+      namespace dto.request {
+        class com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO.Builder {
+            - habilidade : String
+            - preferencia : String
+            {static} + aVoluntarioRequestDTO()
+            + build()
+            + withHabilidade()
+            + withPreferencia()
+            + withUsuarioRequestDTO()
+            - Builder()
+        }
+      }
+    }
+  }
+  
+
+  com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.IdosoRequestDTO.Builder o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+  com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO +-down- com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO.Builder
+  com.bomvizinho.microservice.boundary.controller.dto.request.VoluntarioRequestDTO.Builder o-- com.bomvizinho.microservice.boundary.controller.dto.request.UsuarioRequestDTO : usuarioRequestDTO
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

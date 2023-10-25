@@ -3,6 +3,8 @@ package com.bomvizinho.microservice.application.usecase;
 import com.bomvizinho.microservice.application.exception.AlterarServicoException;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.request.mapper.ServicoVoluntarioRequestDTOMapper;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.mapper.ServicoResponseDTOMapper;
 import com.bomvizinho.microservice.infrastructure.dataprovider.entity.Voluntario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +26,7 @@ public class AlterarServicoUseCase {
         this.criarOuAlterarServicoUseCase = criarOuAlterarServicoUseCase;
     }
 
-    public void execute(ServicoVoluntarioRequestDTO servicoVoluntarioRequestDTO) {
+    public ServicoResponseDTO execute(ServicoVoluntarioRequestDTO servicoVoluntarioRequestDTO) {
         LOG.info("Inicio - Alterar servico");
 
         final var servicos = buscarServicoUseCase.executeById(servicoVoluntarioRequestDTO.getCodigoServico());
@@ -38,11 +40,12 @@ public class AlterarServicoUseCase {
                 throw new AlterarServicoException("Nao existe um perfil voluntario cadastrado para este usuario");
         }
 
-        criarOuAlterarServicoUseCase
-                .execute(ServicoVoluntarioRequestDTOMapper
-                        .toServicoEntity(servicos.get(0), voluntario, servicoVoluntarioRequestDTO));
+        LOG.info("Fim - Alterar servico");
 
-        LOG.info("Inicio - Alterar servico");
+        return ServicoResponseDTOMapper
+                .fromEntity(criarOuAlterarServicoUseCase
+                        .execute(ServicoVoluntarioRequestDTOMapper
+                                .toServicoEntity(servicos.get(0), voluntario, servicoVoluntarioRequestDTO)));
     }
 
 }
