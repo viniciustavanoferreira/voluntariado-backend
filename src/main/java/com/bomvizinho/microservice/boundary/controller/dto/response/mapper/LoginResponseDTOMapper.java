@@ -31,6 +31,8 @@ public class LoginResponseDTOMapper {
                                 .withUsuario(usuario.getIdUsuario())
                                 .withDisponibilidade(usuario.getDisponibilidade())
                                 .withSenha(usuario.getSenha())
+                                .withDataNascimento(usuario.getDataNascimento())
+                                .withTelefone(usuario.getTelefone())
                             .build())
                     .withVoluntarioResponseDTO(VoluntarioResponseDTO.Builder
                             .aVoluntarioResponseDTO()
