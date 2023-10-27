@@ -28,7 +28,7 @@ public class Usuario  implements Serializable {
     @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "cep", length = 8)
+    @Column(name = "cep", length = 9)
     private String cep;
 
     @Column(name = "endereco", length = 100)
