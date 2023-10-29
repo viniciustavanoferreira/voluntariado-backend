@@ -7,6 +7,7 @@ import com.bomvizinho.microservice.application.usecase.DeletarServicoUseCase;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.request.ServicoVoluntarioRequestDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.login.MessageResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoIdosoResponseDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +58,7 @@ public class ServicoController {
 
     @GetMapping
     @Operation(summary = "Buscar todos os serviços elegíveis (que não possuem voluntários associados) cadastrados no sistema")
-    public ResponseEntity<List<ServicoResponseDTO>> buscarTodosServicos() {
+    public ResponseEntity<List<ServicoIdosoResponseDTO>> buscarTodosServicos() {
         return ResponseEntity.ok(buscarTodosServicosElegiveisUseCase.execute());
     }
 
