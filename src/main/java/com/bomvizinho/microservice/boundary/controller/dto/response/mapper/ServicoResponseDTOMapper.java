@@ -1,6 +1,6 @@
 package com.bomvizinho.microservice.boundary.controller.dto.response.mapper;
 
-import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoIdosoResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoAssociadoResponseDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO;
 import com.bomvizinho.microservice.infrastructure.dataprovider.entity.Servico;
 
@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 
 public class ServicoResponseDTOMapper {
 
-    public static List<ServicoIdosoResponseDTO> fromEntities(List<Servico> servicoList) {
+    public static List<ServicoAssociadoResponseDTO> fromEntities(List<Servico> servicoList) {
         return servicoList.stream()
                 .map(servico ->
-                    ServicoIdosoResponseDTO.Builder
-                        .aServicoIdosoResponseDTO()
+                    ServicoAssociadoResponseDTO.Builder
+                        .aServicoAssociadoResponseDTO()
                             .withId(servico.getId())
                             .withOrdem(servico.getOrdem())
                             .withTipoServico(servico.getTipoServico())
@@ -21,7 +21,10 @@ public class ServicoResponseDTOMapper {
                             .withDestino(servico.getDestino())
                             .withDataHoraInicio(servico.getDataInicio())
                             .withDataHoraFim(servico.getDataFim())
-                            .withIdUsuarioIdoso(servico.getIdosoServico().getUsuarioIdoso().getIdUsuario())
+                            .withIdUsuarioIdoso(servico.getIdosoServico() == null ?
+                                    null : servico.getIdosoServico().getUsuarioIdoso().getIdUsuario())
+                            .withIdUsuarioVoluntario(servico.getVoluntarioServico() == null ?
+                                    null : servico.getVoluntarioServico().getUsuarioVoluntario().getIdUsuario())
                         .build()
                 ).collect(Collectors.toList());
     }

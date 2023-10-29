@@ -1,6 +1,7 @@
 package com.bomvizinho.microservice.boundary.controller.dto.response.login;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
@@ -9,16 +10,16 @@ public class LoginResponseDTO {
     private UsuarioResponseDTO usuarioResponseDTO;
     private VoluntarioResponseDTO voluntarioResponseDTO;
     private IdosoResponseDTO idosoResponseDTO;
-    private List<ServicoResponseDTO> servicoResponseDTOList;
+    @JsonProperty("servicoResponseDTOList")
+    private List<ServicoAssociadoResponseDTO> servicoAssociadoResponseDTOList;
 
     @JsonCreator
-
     public LoginResponseDTO(UsuarioResponseDTO usuarioResponseDTO, VoluntarioResponseDTO voluntarioResponseDTO,
-                            IdosoResponseDTO idosoResponseDTO, List<ServicoResponseDTO> servicoResponseDTOList) {
+                            IdosoResponseDTO idosoResponseDTO, List<ServicoAssociadoResponseDTO> servicoAssociadoResponseDTOList) {
         this.usuarioResponseDTO = usuarioResponseDTO;
         this.voluntarioResponseDTO = voluntarioResponseDTO;
         this.idosoResponseDTO = idosoResponseDTO;
-        this.servicoResponseDTOList = servicoResponseDTOList;
+        this.servicoAssociadoResponseDTOList = servicoAssociadoResponseDTOList;
     }
 
     public UsuarioResponseDTO getUsuarioResponseDTO() {
@@ -45,19 +46,19 @@ public class LoginResponseDTO {
         this.idosoResponseDTO = idosoResponseDTO;
     }
 
-    public List<ServicoResponseDTO> getServicoResponseDTOList() {
-        return servicoResponseDTOList;
+    public List<ServicoAssociadoResponseDTO> getServicoAssociadoResponseDTOList() {
+        return servicoAssociadoResponseDTOList;
     }
 
-    public void setServicoResponseDTOList(List<ServicoResponseDTO> servicoResponseDTOList) {
-        this.servicoResponseDTOList = servicoResponseDTOList;
+    public void setServicoAssociadoResponseDTOList(List<ServicoAssociadoResponseDTO> servicoAssociadoResponseDTOList) {
+        this.servicoAssociadoResponseDTOList = servicoAssociadoResponseDTOList;
     }
 
     public static final class Builder {
         private UsuarioResponseDTO usuarioResponseDTO;
         private VoluntarioResponseDTO voluntarioResponseDTO;
         private IdosoResponseDTO idosoResponseDTO;
-        private List<ServicoResponseDTO> servicoResponseDTOList;
+        private List<ServicoAssociadoResponseDTO> servicoAssociadoResponseDTOList;
 
         private Builder() {
         }
@@ -81,13 +82,13 @@ public class LoginResponseDTO {
             return this;
         }
 
-        public Builder withServicoResponseDTOList(List<ServicoResponseDTO> servicoResponseDTOList) {
-            this.servicoResponseDTOList = servicoResponseDTOList;
+        public Builder withServicoAssociadoResponseDTOList(List<ServicoAssociadoResponseDTO> servicoAssociadoResponseDTOList) {
+            this.servicoAssociadoResponseDTOList = servicoAssociadoResponseDTOList;
             return this;
         }
 
         public LoginResponseDTO build() {
-            return new LoginResponseDTO(usuarioResponseDTO, voluntarioResponseDTO, idosoResponseDTO, servicoResponseDTOList);
+            return new LoginResponseDTO(usuarioResponseDTO, voluntarioResponseDTO, idosoResponseDTO, servicoAssociadoResponseDTOList);
         }
     }
 

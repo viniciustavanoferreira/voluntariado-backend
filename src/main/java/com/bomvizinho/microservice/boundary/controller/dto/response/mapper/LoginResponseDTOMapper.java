@@ -47,11 +47,11 @@ public class LoginResponseDTOMapper {
                                 .withCondicaoSaude(idoso == null ? null : idoso.getCondicaoSaude())
                                 .withPreferenciaDia(idoso == null ? null : idoso.getPreferenciaDia())
                             .build())
-                    .withServicoResponseDTOList(servicoList == null ? null :
+                    .withServicoAssociadoResponseDTOList(servicoList == null ? null :
                             servicoList.stream()
                                 .map(servico ->
-                                        ServicoResponseDTO.Builder
-                                                .aServicoResponseDTO()
+                                        ServicoAssociadoResponseDTO.Builder
+                                                .aServicoAssociadoResponseDTO()
                                                     .withId(servico.getId())
                                                     .withTipoServico(servico.getTipoServico())
                                                     .withDataHoraFim(servico.getDataFim())
@@ -59,6 +59,10 @@ public class LoginResponseDTOMapper {
                                                     .withOrdem(servico.getOrdem())
                                                     .withDestino(servico.getDestino())
                                                     .withStatus(servico.getStatus())
+                                                    .withIdUsuarioIdoso(servico.getIdosoServico() == null ?
+                                                            null : servico.getIdosoServico().getUsuarioIdoso().getIdUsuario())
+                                                    .withIdUsuarioVoluntario(servico.getVoluntarioServico() == null ?
+                                                            null : servico.getVoluntarioServico().getUsuarioVoluntario().getIdUsuario())
                                                 .build()
                                 ).collect(Collectors.toList()))
                 .build();
