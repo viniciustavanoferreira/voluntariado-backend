@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.sql.Timestamp;
 
-public class ServicoIdosoResponseDTO {
+public class ServicoAssociadoResponseDTO {
 
     private Long id;
     private Timestamp dataHoraFim;
@@ -14,12 +14,14 @@ public class ServicoIdosoResponseDTO {
     private String tipoServico;
     private String status;
     private String idUsuarioIdoso;
+    private String idUsuarioVoluntario;
 
     @JsonCreator
-    public ServicoIdosoResponseDTO(Long id, Timestamp dataHoraFim,
-                                   Timestamp dataHoraInicio, String ordem,
-                                   String destino, String tipoServico,
-                                   String status, String idUsuarioIdoso) {
+    public ServicoAssociadoResponseDTO(Long id, Timestamp dataHoraFim,
+                                       Timestamp dataHoraInicio, String ordem,
+                                       String destino, String tipoServico,
+                                       String status, String idUsuarioIdoso,
+                                       String idUsuarioVoluntario) {
         this.id = id;
         this.dataHoraFim = dataHoraFim;
         this.dataHoraInicio = dataHoraInicio;
@@ -28,6 +30,7 @@ public class ServicoIdosoResponseDTO {
         this.tipoServico = tipoServico;
         this.status = status;
         this.idUsuarioIdoso = idUsuarioIdoso;
+        this.idUsuarioVoluntario = idUsuarioVoluntario;
     }
 
     public Long getId() {
@@ -94,6 +97,14 @@ public class ServicoIdosoResponseDTO {
         this.idUsuarioIdoso = idUsuarioIdoso;
     }
 
+    public String getIdUsuarioVoluntario() {
+        return idUsuarioVoluntario;
+    }
+
+    public void setIdUsuarioVoluntario(String idUsuarioVoluntario) {
+        this.idUsuarioVoluntario = idUsuarioVoluntario;
+    }
+
     public static final class Builder {
         private Long id;
         private Timestamp dataHoraFim;
@@ -103,11 +114,12 @@ public class ServicoIdosoResponseDTO {
         private String tipoServico;
         private String status;
         private String idUsuarioIdoso;
+        private String idUsuarioVoluntario;
 
         private Builder() {
         }
 
-        public static Builder aServicoIdosoResponseDTO() {
+        public static Builder aServicoAssociadoResponseDTO() {
             return new Builder();
         }
 
@@ -151,8 +163,13 @@ public class ServicoIdosoResponseDTO {
             return this;
         }
 
-        public ServicoIdosoResponseDTO build() {
-            return new ServicoIdosoResponseDTO(id, dataHoraFim, dataHoraInicio, ordem, destino, tipoServico, status, idUsuarioIdoso);
+        public Builder withIdUsuarioVoluntario(String idUsuarioVoluntario) {
+            this.idUsuarioVoluntario = idUsuarioVoluntario;
+            return this;
+        }
+
+        public ServicoAssociadoResponseDTO build() {
+            return new ServicoAssociadoResponseDTO(id, dataHoraFim, dataHoraInicio, ordem, destino, tipoServico, status, idUsuarioIdoso, idUsuarioVoluntario);
         }
     }
 
