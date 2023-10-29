@@ -1,7 +1,7 @@
 package com.bomvizinho.microservice.application.usecase;
 
 import com.bomvizinho.microservice.application.exception.BuscarServicoException;
-import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoResponseDTO;
+import com.bomvizinho.microservice.boundary.controller.dto.response.login.ServicoIdosoResponseDTO;
 import com.bomvizinho.microservice.boundary.controller.dto.response.mapper.ServicoResponseDTOMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class BuscarTodosServicosElegiveisUseCase {
         this.buscarServicoUseCase = buscarServicoUseCase;
     }
 
-    public List<ServicoResponseDTO> execute() {
+    public List<ServicoIdosoResponseDTO> execute() {
         LOG.info("Inicio - Buscar todos os servicos elegiveis para voluntarios");
 
         final var servicos = buscarServicoUseCase.executeByAllEligibles();
