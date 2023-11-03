@@ -25,11 +25,11 @@ public class BuscarUsuarioUseCase {
 
     public Usuario executeByUser(final String idUsuario) {
         return retryTemplate
-                    .execute(context -> buscarUsuario(idUsuario),
+                    .execute(context -> buscarPorUsuario(idUsuario),
                              context -> failedToExecute());
     }
 
-    private Usuario buscarUsuario(final String idUsuario) {
+    private Usuario buscarPorUsuario(final String idUsuario) {
         LOG.info("Inicio - Busca de pessoa por usuario");
 
         final var usuario = usuarioRepository.findByIdUsuario(idUsuario);
@@ -41,6 +41,26 @@ public class BuscarUsuarioUseCase {
         LOG.info("Fim - Busca de pessoa por usuario");
 
         return usuario.get(0);
+    }
+
+    public Usuario executeById(final Long codigoUsuario) {
+        return retryTemplate
+                .execute(context -> buscarPorCodigo(codigoUsuario),
+                         context -> failedToExecute());
+    }
+
+    private Usuario buscarPorCodigo(final Long codigoUsuario) {
+        LOG.info("Inicio - Busca de pessoa por codigo");
+
+        final var usuario = usuarioRepository.findById(codigoUsuario);
+        if (usuario.isEmpty()){
+            LOG.info("Fim - Busca de pessoa por codigo - Nao existe pessoa com o codigo informado");
+            return null;
+        }
+
+        LOG.info("Fim - Busca de pessoa por codigo");
+
+        return usuario.get();
     }
 
     private Usuario failedToExecute() {
