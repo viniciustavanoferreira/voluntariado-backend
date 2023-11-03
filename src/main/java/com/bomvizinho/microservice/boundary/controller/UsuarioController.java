@@ -25,6 +25,7 @@ public class UsuarioController {
     private final AlterarVoluntarioUseCase alterarVoluntarioUseCase;
     private final AlterarIdosoUseCase alterarIdosoUseCase;
     private final BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase;
+    private final DeletarUsuarioUseCase deletarUsuarioUseCase;
 
     public UsuarioController(CadastrarUsuarioUseCase cadastrarUsuarioUseCase,
                              EmailService emailService,
@@ -32,7 +33,8 @@ public class UsuarioController {
                              AlterarSenhaUseCase alterarSenhaUseCase,
                              AlterarVoluntarioUseCase alterarVoluntarioUseCase,
                              AlterarIdosoUseCase alterarIdosoUseCase,
-                             BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase) {
+                             BuscarTodosUsuariosUseCase buscarTodosUsuariosUseCase,
+                             DeletarUsuarioUseCase deletarUsuarioUseCase) {
         this.cadastrarUsuarioUseCase = cadastrarUsuarioUseCase;
         this.emailService = emailService;
         this.loginUseCase = loginUseCase;
@@ -40,6 +42,7 @@ public class UsuarioController {
         this.alterarVoluntarioUseCase = alterarVoluntarioUseCase;
         this.alterarIdosoUseCase = alterarIdosoUseCase;
         this.buscarTodosUsuariosUseCase = buscarTodosUsuariosUseCase;
+        this.deletarUsuarioUseCase = deletarUsuarioUseCase;
     }
 
     @PostMapping("login/id-usuario/{id-usuario}/senha/{senha}")
@@ -103,6 +106,16 @@ public class UsuarioController {
     @Operation(summary = "Buscar todos os usuários cadastrados no sistema")
     public ResponseEntity<List<UsuarioResponseDTO>> buscarTodosUsuarios() {
         return ResponseEntity.ok(buscarTodosUsuariosUseCase.execute());
+    }
+
+    @DeleteMapping("codigo-usuario/{codigo-usuario}/")
+    @Operation(summary = "Deletar usuário cadastrado no sistema")
+    public ResponseEntity<MessageResponseDTO> deletarUsuario(@PathVariable("codigo-usuario") Long codigoUsuario) {
+        deletarUsuarioUseCase.execute(codigoUsuario);
+        return ResponseEntity.ok(MessageResponseDTO.Builder
+                .aMessageDTO()
+                    .withMessage("Usuario deletado com sucesso!")
+                .build());
     }
 
 }

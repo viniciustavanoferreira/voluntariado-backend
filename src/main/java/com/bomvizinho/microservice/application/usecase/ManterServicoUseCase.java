@@ -39,9 +39,29 @@ public class ManterServicoUseCase {
         return false;
     }
 
+    public void executeDeleteByList(final Iterable<Long> idList) {
+        final var failedToExecute = retryTemplate
+                .execute(context -> deletarServicoPorLista(idList),
+                         context -> failedToExecute());
+
+        if (failedToExecute)
+            throw new ManterServicoException("Nao foi possivel deletar servicos");
+    }
+
+    private boolean deletarServicoPorLista(Iterable<Long> idList) {
+        LOG.info("Inicio - Deletar servicos");
+
+        servicoRepository.deleteAllById(idList);
+
+        LOG.info("Fim - Deletar servicos - Sucesso nesta operacao com o banco de dados");
+
+        return false;
+    }
+
     private boolean failedToExecute() {
-        LOG.error("Tentativas esgotadas - Nao foi possivel operar com este servico no banco de dados");
+        LOG.error("Tentativas esgotadas - Nao foi possivel realizar esta operacao no banco de dados");
 
         return true;
     }
+
 }
