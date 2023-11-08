@@ -108,7 +108,7 @@ public class UsuarioController {
         return ResponseEntity.ok(buscarTodosUsuariosUseCase.execute());
     }
 
-    @DeleteMapping("codigo-usuario/{codigo-usuario}/")
+    @DeleteMapping("codigo-usuario/{codigo-usuario}")
     @Operation(summary = "Deletar usuário cadastrado no sistema")
     public ResponseEntity<MessageResponseDTO> deletarUsuario(@PathVariable("codigo-usuario") Long codigoUsuario) {
         deletarUsuarioUseCase.execute(codigoUsuario);
